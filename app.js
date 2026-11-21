@@ -217,7 +217,89 @@ ${dropdown('Pole Positions & Championship Status',`
   `;
 }
 else if(id==='ledger'){out=`<div class="hero"><div class="eyebrow">Heritage Archive · Change history</div><h1>REVISION LEDGER</h1><p>A chronological record of archive updates and the protocol for maintaining our history.</p></div>${panel('Revision history',blocks(revisionLedgerBlocks))}<div class="tools"><button class="action" onclick="go('champ')">Back to championships & trophies</button></div>`}
-else if(id==='team'){out=teamPage()}else if(id==='gallery'){out='<h1>Media gallery</h1><div class="gallery">'+sections().map((s,i)=>s.blocks.filter(b=>b.type==='image').map(b=>panel(esc(s.title),`<a href="${b.src}" target="_blank"><img src="${b.src}" alt="Archive artwork"></a><button class="link" onclick="go('s${i}')">View chapter →</button>`)).join('')).join('')+'</div>'}
+else if(id==='team'){out=teamPage()}
+else if(id==='gallery'){
+  const photos=sections().flatMap((section,i)=>
+    section.blocks
+      .filter(b=>b.type==='image')
+      .map(b=>({
+        src:b.src,
+        chapter:section.title,
+        chapterId:i
+      }))
+  );
+
+  const photoCard=(photo,i)=>`
+    <div class="gallery-card">
+      <a href="${esc(photo.src)}" target="_blank"
+         rel="noopener noreferrer"
+         title="Open full-size photograph">
+        <img src="${esc(photo.src)}"
+             alt="${esc(photo.chapter)}"
+             loading="lazy">
+      </a>
+      <div class="gallery-caption">
+        <small>ARCHIVE IMAGE ${String(i+1).padStart(2,'0')}</small>
+        <h3>${esc(photo.chapter.replace(/^\d+\s+/,''))}</h3>
+        <button class="link"
+                onclick="go('s${photo.chapterId}')">
+          Explore archive chapter →
+        </button>
+      </div>
+    </div>
+  `;
+
+  out=`
+    <div class="hero">
+      <div class="eyebrow">
+        Candy Motorsport · The visual archive
+      </div>
+      <h1>THE MEDIA GALLERY</h1>
+      <p>Forty years of ambition. One Pink Empire.
+      Explore the photographs and artwork preserving
+      Candy Motorsport's racing story.</p>
+    </div>
+
+    <div class="stats">
+      ${stat('Archive Images',photos.length)}
+      ${stat('Founded','1985')}
+      ${stat('F1 Debut','2024')}
+      ${stat('Our Heritage','Joliet, Illinois')}
+    </div>
+
+    ${panel('Through the Lens',`
+      <p>From distinctive racing colours to
+      unforgettable Formula One moments,
+      this collection celebrates the people,
+      machines and milestones of Candy Motorsport.</p>
+      <p class="muted">
+        Select any photograph to view the original
+        image, or explore its archive chapter
+        to discover the story behind it.
+      </p>
+    `)}
+
+    <section class="panel">
+      <h2>📸 The Photographic Collection</h2>
+      <p>Official images preserved in the
+      Candy Motorsport Heritage Archive.</p>
+
+      <div class="media-exhibition">
+        ${photos.map(photoCard).join('') ||
+          '<p>No photographs have been archived yet.</p>'}
+      </div>
+    </section>
+
+    ${panel('The Collection Continues',`
+      <p>The Media Gallery will expand as new
+      photographs, special liveries and historic
+      racing moments are added to the archive.</p>
+      <p>Every image is another chapter in
+      the story of the Pink Empire.</p>
+    `)}
+  `;
+}
+
 else if(id==='update'){out='<h1>Update archive</h1><article><p>Add a new historical entry. Entries are saved in this browser only, and can be exported as JSON for backup or future updates. The source chapters remain unchanged.</p><label>Entry title<br><input class="edit" id="nt" placeholder="British Grand Prix"></label><p><label>Details<textarea id="nb"></textarea></label></p><button class="action" onclick="add()">Save entry</button><div class="tools"><button class="action" onclick="exportNotes()">Export entries</button><label>Import entries <input type="file" accept=".json" onchange="importNotes(this)"></label></div><p id="msg" role="status"></p>'+links(extra.map((_,i)=>archive.length+i))+'</article>'}
 else{let re={history:/^0[1-4]/,races:/Grand Prix|inaugural season/,champ:/Championship|records|honour roll/,people:/family leadership|Formula One project|Affiliate|renewal|line-up/,liveries:/livery/,news:/renewal|line-up/,timeline:/Living Formula One/}[id];let ids=re?by(re):sections().map((_,i)=>i);out = id === 'history'   ? `<div class="hero">        <div class="eyebrow">Candy Motorsport · Est. 1985</div>        <h1>Team History</h1>        <p>The story of the Pink Empire, from its origins in Joliet to its arrival in Formula One.</p>      </div>` +     ids.map(i => {       const chapter = sections()[i];       return `<article class="panel">         <h2>${esc(chapter.title)}</h2>         ${blocks(chapter.blocks)}       </article>`;     }).join('')   : '<h1>' + esc(groups.find(g => g[1] === id)?.[0] || 'All chapters') +     '</h1>' + panel('Browse records', links(ids));
 if(id==='liveries'){
