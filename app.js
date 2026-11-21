@@ -13,7 +13,29 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   <button class="season-tab active" onclick="go('seasons')">
     2024 Season
   </button>
+  <button class="season-tab" onclick="go('season2025')">
+    2025 Season
+</button>
 </div></div><div class="stats">${stat('2024 races logged','11')}${stat('Victories','4')}${stat('Podiums','10')}${stat('Pole positions','4')}</div>${panel('2024 · Inaugural season',`<p><b>Constructors: P3 · 263 points</b> after the Austrian Grand Prix. Ferrari leads on 277 points; Red Bull has 270.</p><p>Daniel Ricciardo: P3 · 141 points<br>Pierre Gasly: P5 · 122 points</p><p class="muted">Historical cut-off: after Austria, before Silverstone 2024. This page reflects the recorded career archive, not real-world Formula One results.</p><button class="action" onclick="go('s5')">Open full 2024 season chapter</button>`)}${dropdown('Race-by-race results',tbl(season.blocks.find(b=>b.type==='table').rows))}${dropdown('2024 Grand Prix Reports',   gpIds.map(i => {     const report = archive[i];     return `<details class="race-report">       <summary>${[   'Round 5 - Chinese Grand Prix | 21st April 2024',   'Round 6 - Miami Grand Prix | 5th May 2024',   'Round 7 - Emilia-Romagna Grand Prix | 19th May 2024',   'Round 8 - Monaco Grand Prix | 26th May 2024',   'Round 9 - Canadian Grand Prix | 9th June 2024',   'Round 10 - Spanish Grand Prix | 23rd June 2024',   'Round 11 - Austrian Grand Prix | 30th June 2024' ][gpIds.indexOf(i)]}</summary>       <div class="race-report-content">         ${blocks(report.blocks)}       </div>     </details>`;   }).join('') )}${dropdown('Championship standings & season records',blocks(records.blocks))}${dropdown('Affiliate driver outings',blocks(affiliates.blocks))}${dropdown('2024 special liveries',`<p>Miami Sugar Vice, British Sherbet Lemon, Austin American Sugar and Las Vegas Sugar Jackpot, alongside the standard Candy Motorsport livery.</p><button class="action" onclick="go('liveries')">Explore liveries</button>`)}${dropdown('2024 driver & team announcements',links([16,17,18]))}${dropdown('Future seasons',`<p>2025 and beyond will be added here as the Candy Motorsport career progresses. No unlogged results are included.</p>`)}`}
+  else if(id==='season2025'){
+  out=`<div class="hero">
+    <div class="eyebrow">Season archive · 2025 Formula One campaign</div>
+    <h1>F1 Seasons</h1>
+    <p>Every campaign, every milestone. The Pink Empire's Formula One story.</p>
+    <div class="season-tabs">
+      <button class="season-tab" onclick="go('seasons')">2024 Season</button>
+      <button class="season-tab active" onclick="go('season2025')">2025 Season</button>
+    </div>
+  </div>
+  ${panel('2025 · Season archive',`
+    <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses.</p>
+    <p class="muted">Race results, championship standings, driver statistics and Grand Prix reports will be added when confirmed.</p>
+  `)}
+  ${dropdown('Race-by-race results','<p>No results recorded yet.</p>')}
+  ${dropdown('2025 Grand Prix Reports','<p>No reports recorded yet.</p>')}
+  ${dropdown('Championship standings & season records','<p>Awaiting 2025 season data.</p>')}
+  ${dropdown('2025 special liveries','<p>To be announced.</p>')}`;
+}
 else if(id==='champ'){let record=archive[6].blocks;out=`<div class="hero"><div class="eyebrow">Candy Motorsport · Official honours</div><h1>CHAMPIONSHIPS & TROPHIES</h1><p>Titles, race victories, podium finishes and the milestones that built the Pink Empire.</p></div><div class="stats">${stat('Pre-F1 titles','18')}${stat('F1 victories','4')}${stat('F1 podiums','10')}${stat('F1 poles','4')}</div>${panel('Historic championship honour roll',`<p>Explore the organisation's pre-Formula One championships and racing heritage.</p><button class="action" onclick="go('s3')">View championship honour roll</button>`)}${panel('2024 season register',blocks(record.slice(0,2)))}${panel('Grand Prix victories',blocks(record.slice(2,4)))}${panel('Podiums & trophies',blocks(record.slice(4,6)))}${panel('Pole positions & championship status',blocks(record.slice(6,8)))}${panel('Milestones',blocks(record.slice(8,10)))}${panel('Archive revisions',`<p>The full change history now has its own dedicated page.</p><button class="action" onclick="go('ledger')">Open revision ledger</button>`)}`}
 else if(id==='ledger'){out=`<div class="hero"><div class="eyebrow">Heritage Archive · Change history</div><h1>REVISION LEDGER</h1><p>A chronological record of archive updates and the protocol for maintaining our history.</p></div>${panel('Revision history',blocks(revisionLedgerBlocks))}<div class="tools"><button class="action" onclick="go('champ')">Back to championships & trophies</button></div>`}
 else if(id==='team'){out=teamPage()}else if(id==='gallery'){out='<h1>Media gallery</h1><div class="gallery">'+sections().map((s,i)=>s.blocks.filter(b=>b.type==='image').map(b=>panel(esc(s.title),`<a href="${b.src}" target="_blank"><img src="${b.src}" alt="Archive artwork"></a><button class="link" onclick="go('s${i}')">View chapter →</button>`)).join('')).join('')+'</div>'}
