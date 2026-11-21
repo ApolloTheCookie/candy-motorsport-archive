@@ -310,9 +310,35 @@ if(id==='chapters'){
     const preview=chapter.blocks
       .find(b=>b.type==='text' && b.text.length>60);
 
-    const description=preview
-      ? preview.text.slice(0,160)+'...'
-      : 'Explore this historical archive record.';
+    
+const description=(()=>{
+  if(!preview) {
+    return 'Explore this historical archive record.';
+  }
+
+  const text=preview.text
+    .replace(/\s+/g,' ')
+    .trim();
+
+  if(text.length<=160) return text;
+
+  const excerpt=text.slice(0,160);
+  const sentenceEnd=Math.max(
+    excerpt.lastIndexOf('. '),
+    excerpt.lastIndexOf('! '),
+    excerpt.lastIndexOf('? ')
+  );
+
+  if(sentenceEnd>=80) {
+    return excerpt.slice(0,sentenceEnd+1);
+  }
+
+  const wordEnd=excerpt.lastIndexOf(' ');
+
+  return excerpt.slice(0,wordEnd>0?wordEnd:160)
+    .replace(/[,:;–-]+$/,'')+'…';
+})();
+
 
     return `
       <article class="chapter-card">
