@@ -1,22 +1,13 @@
 # Candy Motorsport Heritage Archive
 
-Public website source, prepared from `Candy_Heritage_Website_v1.3.html` without modifying its HTML or embedded images.
+This is the modular static website. Publish all files and folders at the repository root.
 
-## Publish using GitHub and Netlify
+- `index.html`: page shell
+- `styles.css`: styling
+- `app.js`: navigation and rendering
+- `data/archive.js`: archive chapters, season results and historical records
+- `assets/images/`: permanently stored team portraits, liveries and archive imagery
 
-1. Create a new GitHub repository, e.g. `candy-motorsport-archive`, and upload `index.html`, `netlify.toml`, and this README into its root.
-2. Sign in to Netlify and choose **Add new project > Import an existing project > GitHub**. Authorize access to the repository.
-3. For this static HTML site, leave the build command blank; set the publish directory to `.` (repository root), if prompted.
-4. Deploy. Netlify provides a `*.netlify.app` address. You can choose a custom site name in Netlify if available.
-5. Future changes committed to the repository's deployment branch will automatically deploy to the same site address.
+To update the website, edit only the relevant file(s) and commit to `main`. Netlify deploys automatically. Keep image filenames referenced by `data/archive.js` and `app.js` intact.
 
-## Maintenance
-
-- Edit `index.html` to change site content. It is a standalone file with embedded imagery.
-- Keep the original images intact unless explicitly asked to change them.
-- Use pull requests for review before merging to the deployment branch.
-- Do not upload confidential team information to this public repository.
-
-## Notes
-
-This package prepares the existing site for deployment. It does not itself create a GitHub repository, Netlify account, or live URL. Publishing requires authorization in the respective services.
+Browser-local notes are still stored in localStorage and are not shared publicly until incorporated into the source.
