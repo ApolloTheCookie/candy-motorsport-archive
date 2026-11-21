@@ -219,5 +219,86 @@ ${dropdown('Pole Positions & Championship Status',`
 else if(id==='ledger'){out=`<div class="hero"><div class="eyebrow">Heritage Archive · Change history</div><h1>REVISION LEDGER</h1><p>A chronological record of archive updates and the protocol for maintaining our history.</p></div>${panel('Revision history',blocks(revisionLedgerBlocks))}<div class="tools"><button class="action" onclick="go('champ')">Back to championships & trophies</button></div>`}
 else if(id==='team'){out=teamPage()}else if(id==='gallery'){out='<h1>Media gallery</h1><div class="gallery">'+sections().map((s,i)=>s.blocks.filter(b=>b.type==='image').map(b=>panel(esc(s.title),`<a href="${b.src}" target="_blank"><img src="${b.src}" alt="Archive artwork"></a><button class="link" onclick="go('s${i}')">View chapter →</button>`)).join('')).join('')+'</div>'}
 else if(id==='update'){out='<h1>Update archive</h1><article><p>Add a new historical entry. Entries are saved in this browser only, and can be exported as JSON for backup or future updates. The source chapters remain unchanged.</p><label>Entry title<br><input class="edit" id="nt" placeholder="British Grand Prix"></label><p><label>Details<textarea id="nb"></textarea></label></p><button class="action" onclick="add()">Save entry</button><div class="tools"><button class="action" onclick="exportNotes()">Export entries</button><label>Import entries <input type="file" accept=".json" onchange="importNotes(this)"></label></div><p id="msg" role="status"></p>'+links(extra.map((_,i)=>archive.length+i))+'</article>'}
-else{let re={history:/^0[1-4]/,races:/Grand Prix|inaugural season/,champ:/Championship|records|honour roll/,people:/family leadership|Formula One project|Affiliate|renewal|line-up/,liveries:/livery/,news:/renewal|line-up/,timeline:/Living Formula One/}[id];let ids=re?by(re):sections().map((_,i)=>i);out = id === 'history'   ? `<div class="hero">        <div class="eyebrow">Candy Motorsport · Est. 1985</div>        <h1>Team History</h1>        <p>The story of the Pink Empire, from its origins in Joliet to its arrival in Formula One.</p>      </div>` +     ids.map(i => {       const chapter = sections()[i];       return `<article class="panel">         <h2>${esc(chapter.title)}</h2>         ${blocks(chapter.blocks)}       </article>`;     }).join('')   : '<h1>' + esc(groups.find(g => g[1] === id)?.[0] || 'All chapters') +     '</h1>' + panel('Browse records', links(ids));if(id==='liveries')out+=panel('Special livery register',blocks(archive.find(s=>s.title.startsWith('09')).blocks));if(id==='races')out+=panel('2024 season results',tbl(archive.find(s=>s.title.startsWith('05')).blocks.find(b=>b.type==='table').rows));if(id==='timeline')out+=blocks(archive.find(s=>s.title.startsWith('06')).blocks)}$('main').innerHTML=out+'<footer>Candy Motorsport · fictional career archive · Source: Heritage Archive v3.6 · Not affiliated with Formula One.</footer>';if(id==='team'){teamQuery='';drawTeam()}}
+else{let re={history:/^0[1-4]/,races:/Grand Prix|inaugural season/,champ:/Championship|records|honour roll/,people:/family leadership|Formula One project|Affiliate|renewal|line-up/,liveries:/livery/,news:/renewal|line-up/,timeline:/Living Formula One/}[id];let ids=re?by(re):sections().map((_,i)=>i);out = id === 'history'   ? `<div class="hero">        <div class="eyebrow">Candy Motorsport · Est. 1985</div>        <h1>Team History</h1>        <p>The story of the Pink Empire, from its origins in Joliet to its arrival in Formula One.</p>      </div>` +     ids.map(i => {       const chapter = sections()[i];       return `<article class="panel">         <h2>${esc(chapter.title)}</h2>         ${blocks(chapter.blocks)}       </article>`;     }).join('')   : '<h1>' + esc(groups.find(g => g[1] === id)?.[0] || 'All chapters') +     '</h1>' + panel('Browse records', links(ids));
+if(id==='liveries'){
+  const liveries=archive[9].blocks;
+
+  out=`
+    <div class="hero">
+      <div class="eyebrow">Candy Motorsport · Racing identity</div>
+      <h1>The Liveries Collection</h1>
+      <p>From our signature electric pink to special
+      editions celebrating the cities and circuits
+      of Formula One.</p>
+    </div>
+
+    <div class="stats">
+      ${stat('2024 Chassis','CM-01')}
+      ${stat('Standard Identity','Pink & White')}
+      ${stat('2024 Specials','4')}
+      ${stat('American Specials','3')}
+    </div>
+
+    ${panel('The CM-01 · Standard Livery',`
+      <p>White bodywork, sweeping electric-pink
+      graphics, a bright pink front wing, a white
+      rear wing and dark exposed lower bodywork
+      define Candy Motorsport's Formula One identity.</p>
+      <p>The design connects the team's American
+      racing heritage with its new international
+      ambitions under Caroline Candy.</p>
+    `)}
+
+    ${panel('2024 · Special Edition Collection',`
+      <p>Four distinctive designs, each celebrating
+      a particular race weekend while preserving
+      the Pink Empire's signature personality.</p>
+
+      ${dropdown('Miami Grand Prix · Miami Sugar Vice',
+        blocks(liveries.slice(1,5)))}
+
+      ${dropdown('British Grand Prix · Sherbet Lemon Edition',
+        blocks(liveries.slice(5,9)))}
+
+      ${dropdown('United States Grand Prix · American Sugar',`
+        <h3>Texas-inspired racing colours</h3>
+        <p>Electric pink meets blue and white in
+        bold angular graphics inspired by American
+        motorsport and the team's Illinois roots.</p>
+        <p>The design celebrates Candy Motorsport's
+        journey from Walter Candy's Joliet workshop
+        to the Formula One grid.</p>
+        <p><b>Status:</b> Designed in-game.
+        Grand Prix debut pending.</p>
+        <p><b>Official photographs:</b>
+        To be revealed soon.</p>
+      `)}
+
+      ${dropdown('Las Vegas Grand Prix · Sugar Jackpot',`
+        <h3>Las Vegas after dark</h3>
+        <p>Electric pink, gold and black create
+        a dramatic interpretation of the city's
+        illuminated casinos and nightlife.</p>
+        <p>The gold detailing brings a celebratory
+        character to the CM-01 while the pink
+        preserves Candy Motorsport's identity.</p>
+        <p><b>Status:</b> Designed in-game.
+        Grand Prix debut pending.</p>
+        <p><b>Official photographs:</b>
+        To be revealed soon.</p>
+      `)}
+    `)}
+
+    ${panel('Future Seasons · Special Editions',`
+      <p>Future Formula One liveries will be
+      documented here as they are designed,
+      approved and officially unveiled.</p>
+      ${dropdown('2025 Special Liveries',`
+        <p>No 2025 special editions have been
+        confirmed in the archive yet.</p>
+      `)}
+    `)}
+  `;
+}
+;if(id==='races')out+=panel('2024 season results',tbl(archive.find(s=>s.title.startsWith('05')).blocks.find(b=>b.type==='table').rows));if(id==='timeline')out+=blocks(archive.find(s=>s.title.startsWith('06')).blocks)}$('main').innerHTML=out+'<footer>Candy Motorsport · fictional career archive · Source: Heritage Archive v3.6 · Not affiliated with Formula One.</footer>';if(id==='team'){teamQuery='';drawTeam()}}
 function add(){let t=$('nt').value.trim(),b=$('nb').value.trim();if(!t||!b)return $('msg').textContent='Enter a title and details.';extra.push({title:t,blocks:[{type:'text',text:b}]});save();render();$('msg').textContent='Entry added.'}function save(){try{localStorage.setItem('candyArchiveNotes',JSON.stringify(extra))}catch{alert('Browser storage unavailable. Export entries before closing.')}}function exportNotes(){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(extra,null,2)],{type:'application/json'}));a.download='candy-archive-updates.json';a.click()}async function importNotes(el){try{let x=JSON.parse(await el.files[0].text());if(!Array.isArray(x)||!x.every(s=>typeof s.title==='string'&&Array.isArray(s.blocks)&&s.blocks.every(b=>b.type==='text'&&typeof b.text==='string')))throw Error();extra=x;save();render()}catch{alert('Invalid archive update file')}}$('search').addEventListener('input',e=>{let q=e.target.value.trim().toLowerCase();if(!q)return render();let ids=sections().map((s,i)=>[s,i]).filter(([s])=>(s.title+' '+s.blocks.map(b=>b.text||b.rows?.flat().join(' ')||'').join(' ')).toLowerCase().includes(q)).map(x=>x[1]);$('main').innerHTML='<h1>Search results</h1><p>'+ids.length+' matching chapters</p>'+panel('Results',links(ids)||'No matching records.')});window.addEventListener('hashchange',()=>{$('search').value='';render()});render();
