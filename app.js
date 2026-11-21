@@ -33,7 +33,40 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   `)}
   ${dropdown('Race-by-race results','<p>No results recorded yet.</p>')}
   ${dropdown('2025 Grand Prix Reports','<p>No reports recorded yet.</p>')}
-  ${dropdown('Championship standings & season records','<p>Awaiting 2025 season data.</p>')}
+ ${dropdown("2025 Drivers' Championship Standings",`
+  <table>
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Driver</th>
+        <th>Constructor</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="4">Awaiting 2025 championship results.</td>
+      </tr>
+    </tbody>
+  </table>
+`)}
+
+${dropdown("2025 Constructors' Championship Standings",`
+  <table>
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Constructor</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="3">Awaiting 2025 championship results.</td>
+      </tr>
+    </tbody>
+  </table>
+`)}
   ${dropdown('2025 special liveries','<p>To be announced.</p>')}`;
 }
 else if(id==='champ'){let record=archive[6].blocks;out=`<div class="hero"><div class="eyebrow">Candy Motorsport · Official honours</div><h1>CHAMPIONSHIPS & TROPHIES</h1><p>Titles, race victories, podium finishes and the milestones that built the Pink Empire.</p></div><div class="stats">${stat('Pre-F1 titles','18')}${stat('F1 victories','4')}${stat('F1 podiums','10')}${stat('F1 poles','4')}</div>${panel('Historic championship honour roll',`<p>Explore the organisation's pre-Formula One championships and racing heritage.</p><button class="action" onclick="go('s3')">View championship honour roll</button>`)}${panel('2024 season register',blocks(record.slice(0,2)))}${panel('Grand Prix victories',blocks(record.slice(2,4)))}${panel('Podiums & trophies',blocks(record.slice(4,6)))}${panel('Pole positions & championship status',blocks(record.slice(6,8)))}${panel('Milestones',blocks(record.slice(8,10)))}${panel('Archive revisions',`<p>The full change history now has its own dedicated page.</p><button class="action" onclick="go('ledger')">Open revision ledger</button>`)}`}
