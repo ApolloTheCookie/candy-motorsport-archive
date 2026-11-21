@@ -182,8 +182,30 @@ else if(id==='champ'){
         blocks(record.slice(2,4)))}
       ${dropdown('Podiums & Trophies',
         blocks(record.slice(4,6)))}
-      ${dropdown('Pole Positions & Championship Status',
-        blocks(record.slice(6,8)))}
+      
+${dropdown('Pole Positions & Championship Status',`
+  <h3>2024 Pole Position Register</h3>
+  ${tbl([
+    ['Grand Prix','Date','Driver','Pole Lap','Conditions'],
+    ['Miami','4 May 2024','Daniel Ricciardo','1:38.085','Moderate rain'],
+    ['Emilia-Romagna','18 May 2024','Daniel Ricciardo','1:20.388','Heavy rain'],
+    ['Monaco','25 May 2024','Daniel Ricciardo','1:09.327','Partly cloudy'],
+    ['Canada','8 June 2024','Daniel Ricciardo','1:09.969','Not recorded']
+  ])}
+
+  <h3>Notable Qualifying Achievements</h3>
+  <p><strong>Monaco:</strong> Pierre Gasly qualified P2
+  with a 1:09.375, securing Candy Motorsport's
+  first all-team front-row lockout.</p>
+  <p><strong>Canada:</strong> Pierre Gasly qualified P5
+  with a 1:10.692.</p>
+
+  <h3>Championship Status</h3>
+  <p>No Formula One Drivers' or Constructors'
+  Championship titles recorded at the
+  archive cut-off.</p>
+`)}
+
     `)}
 
     ${titleBlock('⭐ Legendary Milestones',`
