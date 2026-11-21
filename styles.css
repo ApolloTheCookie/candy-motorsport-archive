@@ -607,3 +607,251 @@
     transform: none;
   }
 }
+
+/* ==========================================
+   CANDY MOTORSPORT · INDIVIDUAL CHAPTERS
+   ========================================== */
+
+/* Historical chapter hero */
+.chapter-hero {
+  background: linear-gradient(
+    120deg,
+    #191824 0%,
+    #39152f 65%,
+    #830047 100%
+  );
+  color: #ffffff;
+  border-top: 5px solid #ed007e;
+  border-radius: 16px;
+  padding: 38px 42px;
+  margin-bottom: 28px;
+  box-shadow: 0 12px 30px rgba(20, 10, 25, 0.16);
+}
+
+.chapter-hero-top,
+.chapter-hero-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chapter-kicker,
+.chapter-reference {
+  color: #ff91c9;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.chapter-reference {
+  background: rgba(237, 0, 126, 0.16);
+  border: 1px solid #ed007e;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.chapter-hero h1 {
+  color: #ffffff;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.15;
+  margin: 30px 0 16px;
+  overflow-wrap: anywhere;
+}
+
+.chapter-hero p {
+  color: #f3dbe9;
+  font-size: 16px;
+  margin: 0 0 30px;
+}
+
+.chapter-hero-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 18px;
+  color: #e8c9db;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Reading area */
+.chapter-reading-layout {
+  max-width: 1100px;
+  margin: 0 auto 28px;
+}
+
+.chapter-document {
+  background: #ffffff;
+  border: 1px solid #e7dce5;
+  border-radius: 14px;
+  padding: 40px 46px;
+  box-shadow: 0 8px 24px rgba(20, 10, 25, 0.06);
+}
+
+.chapter-document-label {
+  color: #a50058;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eadce6;
+}
+
+/* Historical text */
+.chapter-document p {
+  color: #292631;
+  font-size: 16px;
+  line-height: 1.85;
+  margin: 0 0 22px;
+  overflow-wrap: anywhere;
+}
+
+/* Section headings */
+.chapter-document h3 {
+  color: #211a28;
+  font-size: 22px;
+  line-height: 1.4;
+  border-left: 5px solid #ed007e;
+  padding-left: 16px;
+  margin: 38px 0 20px;
+}
+
+/* Historical images */
+.chapter-document img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin: 28px auto;
+}
+
+/* Historical tables */
+.chapter-document .tablewrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 28px 0;
+  border: 1px solid #eadce6;
+  border-radius: 10px;
+}
+
+.chapter-document table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.chapter-document th {
+  background: #fbe3f0;
+  color: #870048;
+  font-weight: 800;
+}
+
+.chapter-document th,
+.chapter-document td {
+  padding: 13px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eee3eb;
+}
+
+.chapter-document tr:last-child td {
+  border-bottom: none;
+}
+
+/* Chapter navigation */
+.chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto 30px;
+}
+
+.chapter-navigation-arrows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chapter-back,
+.chapter-nav-button {
+  padding: 12px 18px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.chapter-back {
+  background: #ffffff;
+  color: #a50058;
+  border: 1px solid #ed007e;
+}
+
+.chapter-back:hover {
+  background: #fbe3f0;
+}
+
+.chapter-nav-button {
+  background: #ed007e;
+  color: #ffffff;
+  border: 1px solid #ed007e;
+}
+
+.chapter-nav-button:hover {
+  background: #b90063;
+}
+
+.chapter-back:focus-visible,
+.chapter-nav-button:focus-visible {
+  outline: 3px solid #ff91c9;
+  outline-offset: 3px;
+}
+
+/* Tablet and mobile */
+@media (max-width: 750px) {
+  .chapter-hero {
+    padding: 26px 22px;
+  }
+
+  .chapter-document {
+    padding: 26px 22px;
+  }
+
+  .chapter-document h3 {
+    font-size: 19px;
+  }
+
+  .chapter-document p {
+    font-size: 15px;
+  }
+
+  .chapter-navigation {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-navigation-arrows {
+    flex-direction: column;
+  }
+
+  .chapter-back,
+  .chapter-nav-button {
+    width: 100%;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .chapter-back,
+  .chapter-nav-button {
+    transition: none;
+  }
+}
