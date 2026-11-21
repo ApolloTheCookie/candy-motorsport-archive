@@ -855,3 +855,21 @@
     transition: none;
   }
 }
+
+/* 2024 season liveries: show the complete standard CM-01 image at a comparable scale. */
+.season-livery-photo .cm01-photo {
+  max-width: 820px;
+  margin: 16px auto 30px;
+  text-align: center;
+}
+
+.season-livery-photo .cm01-photo img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 440px;
+  object-fit: contain;
+  object-position: center center;
+  margin: 0 auto 10px;
+}
