@@ -99,3 +99,154 @@
     text-align: center;
   }
 }
+
+/* =========================================
+   CANDY MOTORSPORT | THE TROPHY CABINET
+   ========================================= */
+
+/* Championship hero */
+.trophy-hero {
+  background: linear-gradient(
+    135deg,
+    #1b1023 0%,
+    #471b3a 55%,
+    #8d235b 100%
+  );
+  border: 1px solid #d4a853;
+  border-radius: 18px;
+  padding: 48px 28px;
+  text-align: center;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+.trophy-hero h1 {
+  color: #fff5dc;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.35);
+}
+
+.trophy-hero .eyebrow {
+  color: #f3c66d;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.trophy-hero p {
+  color: #ffe2ef;
+  font-size: 1.1rem;
+}
+
+/* Championship statistics */
+.trophy-stats .stat {
+  background: linear-gradient(
+    145deg,
+    #2a182e,
+    #4c2340
+  );
+  border: 1px solid #c69a47;
+  border-radius: 14px;
+  text-align: center;
+  padding: 22px 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.trophy-stats .stat strong {
+  color: #ff85bd;
+  font-size: 2.4rem;
+}
+
+.trophy-stats .stat small {
+  color: #f6dba2;
+  font-weight: 600;
+}
+
+/* Trophy display sections */
+.trophy-section {
+  background: linear-gradient(
+    145deg,
+    #211724,
+    #352438
+  );
+  border: 1px solid #79536a;
+  border-left: 5px solid #e6b85c;
+  border-radius: 14px;
+  padding: 25px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.trophy-section h2 {
+  color: #f3c66d;
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+}
+
+.trophy-section p {
+  color: #f4e8f0;
+  line-height: 1.7;
+}
+
+/* Expandable trophy records */
+.trophy-section .race-report {
+  background: #2b1e30;
+  border: 1px solid #78516b;
+  border-radius: 10px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.trophy-section .race-report summary {
+  color: #ffd1e5;
+  font-weight: 700;
+  padding: 16px;
+  cursor: pointer;
+}
+
+.trophy-section .race-report[open] summary {
+  color: #f3c66d;
+  border-bottom: 1px solid #78516b;
+}
+
+.trophy-section .race-report-content {
+  padding: 18px;
+  color: #f5e9f0;
+}
+
+/* Championship record tables */
+.trophy-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trophy-section th {
+  background: #693451;
+  color: #fff2d7;
+}
+
+.trophy-section td {
+  color: #f7edf3;
+  border-bottom: 1px solid #5a4056;
+}
+
+.trophy-section th,
+.trophy-section td {
+  padding: 12px;
+  text-align: left;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .trophy-hero {
+    padding: 32px 18px;
+  }
+
+  .trophy-section {
+    padding: 16px;
+  }
+
+  .trophy-stats .stat strong {
+    font-size: 1.9rem;
+  }
+}
