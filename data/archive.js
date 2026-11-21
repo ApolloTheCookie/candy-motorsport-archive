@@ -30,6 +30,30 @@ const archive=[{"title": "Introduction", "blocks": [{"type": "text", "text": "ES
     {
       "type": "text",
       "text": "Ricciardo topped FP2, while both Candy Motorsport drivers finished inside the top five in FP3. Pulling completed her Silverstone FP1 academy outing in ninth place."
+    },
+    {
+      "type": "heading",
+      "text": "British Grand Prix | Qualifying"
+    },
+    {
+      "type": "text",
+      "text": "Daniel Ricciardo secured pole position at Silverstone, his fifth pole for Candy Motorsport. Pierre Gasly qualified third, giving the team two cars in the top three."
+    },
+    {
+      "type": "table",
+      "rows": [
+        ["Session", "Driver", "Position", "Best lap", "Conditions"],
+        ["Q1", "Daniel Ricciardo", "P7", "1:26.798", "Cloudy"],
+        ["Q1", "Pierre Gasly", "P4", "1:26.325", "Cloudy"],
+        ["Q2", "Daniel Ricciardo", "P2", "1:26.259", "Cloudy"],
+        ["Q2", "Pierre Gasly", "P9", "1:26.325", "Cloudy"],
+        ["Q3", "Daniel Ricciardo", "P1", "1:26.049", "Cloudy"],
+        ["Q3", "Pierre Gasly", "P3", "1:26.136", "Cloudy"]
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Ricciardo improved through qualifying to secure pole position, with Gasly just 0.087 seconds behind in Q3. The Sherbet Lemon cars will start the British Grand Prix from first and third."
     }
   ]
 }];
