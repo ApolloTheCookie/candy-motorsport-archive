@@ -489,10 +489,10 @@ const description=(()=>{
       a particular race weekend while preserving
       the Pink Empire's signature personality.</p>
 
-      ${dropdown('Miami Grand Prix · Miami Sugar Vice',
+      ${dropdown('Miami Grand Prix | Sugar Vice',
         blocks(liveries.slice(1,5)))}
 
-      ${dropdown('British Grand Prix · Sherbet Lemon Edition',
+      ${dropdown('British Grand Prix | Sherbert Lemon',
         blocks(liveries.slice(5,9)))}
 
       ${dropdown('United States Grand Prix · American Sugar',`
