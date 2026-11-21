@@ -250,3 +250,99 @@
     font-size: 1.9rem;
   }
 }
+
+/* TROPHY CABINET: HIGH-CONTRAST READABILITY FIX */
+
+/* All text inside the dark display panels */
+.trophy-section,
+.trophy-section p,
+.trophy-section li,
+.trophy-section span,
+.trophy-section div {
+  color: #fff4fa;
+}
+
+/* All headings, including nested archive headings */
+.trophy-section h2,
+.trophy-section h3,
+.trophy-section h4 {
+  color: #ffd477;
+}
+
+/* Tables: consistent dark rows and readable text */
+.trophy-section table {
+  background: #241725;
+}
+
+.trophy-section table thead tr,
+.trophy-section table th {
+  background: #70405c;
+  color: #ffffff;
+}
+
+.trophy-section table tbody tr,
+.trophy-section table tbody tr:nth-child(even),
+.trophy-section table tbody tr:nth-child(odd) {
+  background: #302033;
+}
+
+.trophy-section table tbody tr:nth-child(even) {
+  background: #412a42;
+}
+
+.trophy-section table td,
+.trophy-section table th {
+  color: #ffffff;
+  border-bottom: 1px solid #73536c;
+}
+
+/* Readable labels and secondary information */
+.trophy-section .muted,
+.trophy-section small {
+  color: #e9cddd;
+}
+
+/* Expandable sections and interactive elements */
+.trophy-section details,
+.trophy-section summary {
+  color: #ffffff;
+}
+
+.trophy-section summary {
+  background: #49304a;
+  border-radius: 8px;
+}
+
+.trophy-section summary:hover {
+  background: #684064;
+}
+
+.trophy-section button:not(.action),
+.trophy-section a:not(.action) {
+  color: #ffd477;
+}
+
+/* Statistics: ensure every label is visible */
+.trophy-stats .stat {
+  color: #ffffff;
+}
+
+.trophy-stats .stat strong {
+  color: #ff9ccd;
+}
+
+.trophy-stats .stat small {
+  color: #fff0c9;
+}
+
+/* Improve readability on narrow screens */
+@media (max-width: 600px) {
+  .trophy-section table {
+    font-size: 14px;
+  }
+
+  .trophy-section th,
+  .trophy-section td {
+    padding: 10px;
+  }
+}
