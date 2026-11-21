@@ -88,30 +88,33 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
 </button>
 </div></div><div class="stats">${stat('2024 races logged','12')}${stat('Victories','4')}${stat('Podiums','12')}${stat('Pole positions','5')}</div>${panel('2024 · Inaugural season',`<p><b>Constructors: P1 · 296 points</b> after the British Grand Prix. Candy Motorsport leads on 296 points; Red Bull has 295 and Ferrari has 278.</p><p>Daniel Ricciardo: P2 · 159 points<br>Pierre Gasly: P4 · 137 points</p><p class="muted">Historical cut-off: after Silverstone, before Hungary 2024. This page reflects the recorded career archive, not real-world Formula One results.</p><button class="action" onclick="go('s5')">Open full 2024 season chapter</button>`)}${dropdown('Race-by-Race Results',tbl(season.blocks.find(b=>b.type==='table').rows))}${dropdown('2024 Grand Prix Reports',   gpIds.map(i => {     const report = archive[i];     return `<details class="race-report">       <summary>${[   'Round 5 - Chinese Grand Prix | 21st April 2024',   'Round 6 - Miami Grand Prix | 5th May 2024',   'Round 7 - Emilia-Romagna Grand Prix | 19th May 2024',   'Round 8 - Monaco Grand Prix | 26th May 2024',   'Round 9 - Canadian Grand Prix | 9th June 2024',   'Round 10 - Spanish Grand Prix | 23rd June 2024',   'Round 11 - Austrian Grand Prix | 30th June 2024', 'Round 12 - British Grand Prix | 7th July 2024' ][gpIds.indexOf(i)]}</summary>       <div class="race-report-content">         ${blocks(report.blocks)}       </div>     </details>`;   }).join('') )}${dropdown("2024 Drivers' Championship Standings",`
   <table>
-    <thead>
-      <tr>
-        <th>Pos</th>
-        <th>Driver</th>
-        <th>Constructor</th>
-        <th>Points</th>
-      </tr>
-    </thead>
+    <thead><tr><th>Pos</th><th>Driver</th><th>Constructor</th><th>Points</th></tr></thead>
     <tbody>
-      <tr>
-        <td>2</td>
-        <td>Daniel Ricciardo</td>
-        <td>Candy Motorsport</td>
-        <td>159</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Pierre Gasly</td>
-        <td>Candy Motorsport</td>
-        <td>137</td>
-      </tr>
+      <tr><td>1</td><td>Max Verstappen</td><td>Red Bull</td><td>199</td></tr>
+      <tr><td>2</td><td>Daniel Ricciardo</td><td>Candy Motorsport</td><td>159</td></tr>
+      <tr><td>3</td><td>Carlos Sainz</td><td>Ferrari</td><td>152</td></tr>
+      <tr><td>4</td><td>Pierre Gasly</td><td>Candy Motorsport</td><td>137</td></tr>
+      <tr><td>5</td><td>Charles Leclerc</td><td>Ferrari</td><td>126</td></tr>
+      <tr><td>6</td><td>Sergio Pérez</td><td>Red Bull</td><td>96</td></tr>
+      <tr><td>7</td><td>Lando Norris</td><td>McLaren</td><td>86</td></tr>
+      <tr><td>8</td><td>Oscar Piastri</td><td>McLaren</td><td>80</td></tr>
+      <tr><td>9</td><td>Lewis Hamilton</td><td>Mercedes</td><td>60</td></tr>
+      <tr><td>10</td><td>George Russell</td><td>Mercedes</td><td>34</td></tr>
+      <tr><td>11</td><td>Yuki Tsunoda</td><td>RB</td><td>27</td></tr>
+      <tr><td>12</td><td>Lance Stroll</td><td>Aston Martin</td><td>25</td></tr>
+      <tr><td>13</td><td>Fernando Alonso</td><td>Aston Martin</td><td>23</td></tr>
+      <tr><td>14</td><td>Ayumu Iwasa</td><td>RB</td><td>3</td></tr>
+      <tr><td>15</td><td>Valtteri Bottas</td><td>Kick Sauber</td><td>2</td></tr>
+      <tr><td>16</td><td>Esteban Ocon</td><td>Alpine</td><td>2</td></tr>
+      <tr><td>17</td><td>Alexander Albon</td><td>Williams</td><td>1</td></tr>
+      <tr><td>18</td><td>Nico Hülkenberg</td><td>Haas</td><td>0</td></tr>
+      <tr><td>19</td><td>Kevin Magnussen</td><td>Haas</td><td>0</td></tr>
+      <tr><td>20</td><td>Zhou Guanyu</td><td>Kick Sauber</td><td>0</td></tr>
+      <tr><td>21</td><td>Logan Sergeant</td><td>Williams</td><td>0</td></tr>
+      <tr><td>22</td><td>Victor Martins</td><td>Alpine</td><td>0</td></tr>
     </tbody>
   </table>
-  <p class="muted">Standings after Round 12, British Grand Prix. Other drivers will be added when their positions and points are confirmed.</p>
+  <p class="muted">Standings after Round 12, British Grand Prix, 7 July 2024.</p>
 `)}${dropdown("2024 Constructors' Championship Standings",`
   <table>
     <thead><tr><th>Pos</th><th>Constructor</th><th>Points</th></tr></thead>
