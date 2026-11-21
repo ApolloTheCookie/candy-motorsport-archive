@@ -302,7 +302,70 @@ else if(id==='gallery'){
 
 else if(id==='update'){out='<h1>Update archive</h1><article><p>Add a new historical entry. Entries are saved in this browser only, and can be exported as JSON for backup or future updates. The source chapters remain unchanged.</p><label>Entry title<br><input class="edit" id="nt" placeholder="British Grand Prix"></label><p><label>Details<textarea id="nb"></textarea></label></p><button class="action" onclick="add()">Save entry</button><div class="tools"><button class="action" onclick="exportNotes()">Export entries</button><label>Import entries <input type="file" accept=".json" onchange="importNotes(this)"></label></div><p id="msg" role="status"></p>'+links(extra.map((_,i)=>archive.length+i))+'</article>'}
 else{let re={history:/^0[1-4]/,races:/Grand Prix|inaugural season/,champ:/Championship|records|honour roll/,people:/family leadership|Formula One project|Affiliate|renewal|line-up/,liveries:/livery/,news:/renewal|line-up/,timeline:/Living Formula One/}[id];let ids=re?by(re):sections().map((_,i)=>i);out = id === 'history'   ? `<div class="hero">        <div class="eyebrow">Candy Motorsport · Est. 1985</div>        <h1>Team History</h1>        <p>The story of the Pink Empire, from its origins in Joliet to its arrival in Formula One.</p>      </div>` +     ids.map(i => {       const chapter = sections()[i];       return `<article class="panel">         <h2>${esc(chapter.title)}</h2>         ${blocks(chapter.blocks)}       </article>`;     }).join('')   : '<h1>' + esc(groups.find(g => g[1] === id)?.[0] || 'All chapters') +     '</h1>' + panel('Browse records', links(ids));
-if(id==='liveries'){
+
+if(id==='chapters'){
+  const chapters=sections();
+
+  const chapterCard=(chapter,i)=>{
+    const preview=chapter.blocks
+      .find(b=>b.type==='text' && b.text.length>60);
+
+    const description=preview
+      ? preview.text.slice(0,160)+'...'
+      : 'Explore this historical archive record.';
+
+    return `
+      <article class="chapter-card">
+        <div class="chapter-number">
+          RECORD ${String(i+1).padStart(2,'0')}
+        </div>
+        <h3>${esc(chapter.title.replace(/^\d+\s+/,''))}</h3>
+        <p>${esc(description)}</p>
+        <button class="action" onclick="go('s${i}')">
+          Explore Chapter →
+        </button>
+      </article>
+    `;
+  };
+
+  out=`
+    <div class="hero">
+      <div class="eyebrow">
+        Candy Motorsport · Historical records
+      </div>
+      <h1>CHAPTERS</h1>
+      <p>Explore the stories, milestones and
+      defining moments behind the Pink Empire.</p>
+    </div>
+
+    <div class="stats">
+      ${stat('Archive Records',chapters.length)}
+      ${stat('Founded','1985')}
+      ${stat('Formula One Debut','2024')}
+      ${stat('Home','Joliet, Illinois')}
+    </div>
+
+    ${panel('The Historical Library',`
+      <p>Every great racing organisation has a
+      story worth preserving. Discover the people,
+      achievements and defining moments that
+      shaped Candy Motorsport.</p>
+      <p class="muted">
+        Select any chapter to explore its complete
+        historical record.
+      </p>
+    `)}
+
+    <section class="panel">
+      <h2>📚 Explore the Archive</h2>
+      <div class="chapters-grid">
+        ${chapters.map(chapterCard).join('')}
+      </div>
+    </section>
+  `;
+}
+
+     if(id==='liveries'){
   const liveries=archive[9].blocks;
 
   out=`
