@@ -133,7 +133,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
     </tbody>
   </table>
   <p class="muted">Standings after Round 13, Hungarian Grand Prix, 21 July 2024.</p>
-`)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate Driver Outings',blocks(affiliates.blocks))}${dropdown('2024 Liveries','<div class="season-livery-photo">'+standardLiveryPhoto+'</div>' + blocks(archive[9].blocks.slice(0,8)) + `
+`)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate Driver Outings',blocks(affiliates.blocks))}${dropdown('2024 Liveries','<h3>Standard 2024 Livery | CM-01</h3><div class="season-livery-photo">'+standardLiveryPhoto+'</div>' + blocks(archive[9].blocks.slice(0,8)) + `
   <h3>Austin Grand Prix | American Sugar</h3>
   <p>Pink, blue and white angular stripes honour American racing heritage and the team's Illinois roots.</p>
   <p><b>To be revealed soon.</b></p>
