@@ -70,7 +70,22 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
     </tbody>
   </table>
   <p class="muted">Standings after Round 11, Austrian Grand Prix. Remaining constructors will be added when their positions and points are confirmed.</p>
-`)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate driver outings',blocks(affiliates.blocks))}${dropdown('2024 special liveries',`<p>Miami Sugar Vice, British Sherbet Lemon, Austin American Sugar and Las Vegas Sugar Jackpot, alongside the standard Candy Motorsport livery.</p><button class="action" onclick="go('liveries')">Explore liveries</button>`)}${dropdown('2024 driver & team announcements',links([16,17,18]))}${dropdown('Future seasons',`<p>2025 and beyond will be added here as the Candy Motorsport career progresses. No unlogged results are included.</p>`)}`}
+`)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate driver outings',blocks(affiliates.blocks))}${dropdown('2024 Special Liveries',blocks(archive[9].blocks.slice(0,8)) + `
+  <h3>Austin Grand Prix | American Sugar</h3>
+  <p>Pink, blue and white angular stripes honour American racing heritage and the team's Illinois roots.</p>
+  <p><b>To be revealed soon.</b></p>
+
+  <h3>Las Vegas Grand Prix | Sugar Jackpot</h3>
+  <p>Pink, gold and black celebrate the illuminated casinos and glamour of the Las Vegas Strip.</p>
+  <p><b>To be revealed soon.</b></p>
+`)}${dropdown('2024 Driver & Team Announcements',
+  [16,17,18].map(i => `
+    <article class="panel">
+      <h3>${esc(archive[i].title.replace(/^\d+\s+/,''))}</h3>
+      ${blocks(archive[i].blocks)}
+    </article>
+  `).join('')
+)}`}
   else if(id==='season2025'){
   out=`<div class="hero">
     <div class="eyebrow">Season archive · 2025 Formula One campaign</div>
