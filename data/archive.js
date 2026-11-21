@@ -54,6 +54,56 @@ const archive=[{"title": "Introduction", "blocks": [{"type": "text", "text": "ES
     {
       "type": "text",
       "text": "Ricciardo improved through qualifying to secure pole position, with Gasly just 0.087 seconds behind in Q3. The Sherbet Lemon cars will start the British Grand Prix from first and third."
+     },
+    {
+      "type": "heading",
+      "text": "British Grand Prix | Race Results"
+    },
+    {
+      "type": "text",
+      "text": "Candy Motorsport secured a double podium at Silverstone. Daniel Ricciardo finished second behind Max Verstappen, while Pierre Gasly finished third. The result moved Candy Motorsport into first place in the Constructors' Championship for the first time."
+    },
+    {
+      "type": "table",
+      "rows": [
+        ["Position", "Driver", "Team", "Best lap"],
+        ["P1", "Max Verstappen", "Red Bull", "Not recorded"],
+        ["P2", "Daniel Ricciardo", "Candy Motorsport", "1:31.116"],
+        ["P3", "Pierre Gasly", "Candy Motorsport", "1:32.519"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Championship Standings | After Silverstone"
+    },
+    {
+      "type": "table",
+      "rows": [
+        ["Constructors' Championship", "Points"],
+        ["P1 Candy Motorsport", "296"],
+        ["P2 Red Bull", "295"],
+        ["P3 Ferrari", "278"]
+      ]
+    },
+    {
+      "type": "table",
+      "rows": [
+        ["Drivers' Championship", "Points"],
+        ["P2 Daniel Ricciardo", "159"],
+        ["P4 Pierre Gasly", "137"]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "Race Weekend Achievements"
+    },
+    {
+      "type": "text",
+      "text": "Ricciardo and Gasly scored 33 championship points combined. Both drivers achieved their race targets, earning Candy Motorsport $1,008,332 in bonuses. Gasly recorded a 2.573-second pit stop, ranked tenth in the DHL Top 10 Fastest Pit Stops."
+    },
+    {
+      "type": "text",
+      "text": "The British Grand Prix marked Candy Motorsport's first lead of the Formula One Constructors' Championship, holding a one-point advantage over Red Bull after twelve rounds. The team celebrated the achievement wearing its special Silverstone Sherbet Lemon livery."
     }
   ]
 }];
