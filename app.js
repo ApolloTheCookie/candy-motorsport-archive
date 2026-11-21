@@ -114,32 +114,22 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   <p class="muted">Standings after Round 12, British Grand Prix. Other drivers will be added when their positions and points are confirmed.</p>
 `)}${dropdown("2024 Constructors' Championship Standings",`
   <table>
-    <thead>
-      <tr>
-        <th>Pos</th>
-        <th>Constructor</th>
-        <th>Points</th>
-      </tr>
-    </thead>
+    <thead><tr><th>Pos</th><th>Constructor</th><th>Points</th></tr></thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Candy Motorsports</td>
-        <td>296</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Red Bull Racing</td>
-        <td>295</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Ferrari</td>
-        <td>278</td>
-      </tr>
+      <tr><td>1</td><td>Candy Motorsports</td><td>296</td></tr>
+      <tr><td>2</td><td>Red Bull</td><td>295</td></tr>
+      <tr><td>3</td><td>Ferrari</td><td>278</td></tr>
+      <tr><td>4</td><td>McLaren</td><td>166</td></tr>
+      <tr><td>5</td><td>Mercedes</td><td>94</td></tr>
+      <tr><td>6</td><td>Aston Martin</td><td>48</td></tr>
+      <tr><td>7</td><td>RB</td><td>30</td></tr>
+      <tr><td>8</td><td>Kick Sauber</td><td>2</td></tr>
+      <tr><td>9</td><td>Alpine</td><td>2</td></tr>
+      <tr><td>10</td><td>Williams</td><td>1</td></tr>
+      <tr><td>11</td><td>Haas</td><td>0</td></tr>
     </tbody>
   </table>
-  <p class="muted">Standings after Round 12, British Grand Prix. Remaining constructors will be added when their positions and points are confirmed.</p>
+  <p class="muted">Confirmed standings after Round 12, British Grand Prix, 7 July 2024.</p>
 `)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate Driver Outings',blocks(affiliates.blocks))}${dropdown('CM-01 · Standard 2024 Livery',standardLiveryPhoto)}${dropdown('2024 Special Liveries',blocks(archive[9].blocks.slice(0,8)) + `
   <h3>Austin Grand Prix | American Sugar</h3>
   <p>Pink, blue and white angular stripes honour American racing heritage and the team's Illinois roots.</p>
