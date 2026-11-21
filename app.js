@@ -16,7 +16,61 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   <button class="season-tab" onclick="go('season2025')">
     2025 Season
 </button>
-</div></div><div class="stats">${stat('2024 races logged','11')}${stat('Victories','4')}${stat('Podiums','10')}${stat('Pole positions','4')}</div>${panel('2024 · Inaugural season',`<p><b>Constructors: P3 · 263 points</b> after the Austrian Grand Prix. Ferrari leads on 277 points; Red Bull has 270.</p><p>Daniel Ricciardo: P3 · 141 points<br>Pierre Gasly: P5 · 122 points</p><p class="muted">Historical cut-off: after Austria, before Silverstone 2024. This page reflects the recorded career archive, not real-world Formula One results.</p><button class="action" onclick="go('s5')">Open full 2024 season chapter</button>`)}${dropdown('Race-by-race results',tbl(season.blocks.find(b=>b.type==='table').rows))}${dropdown('2024 Grand Prix Reports',   gpIds.map(i => {     const report = archive[i];     return `<details class="race-report">       <summary>${[   'Round 5 - Chinese Grand Prix | 21st April 2024',   'Round 6 - Miami Grand Prix | 5th May 2024',   'Round 7 - Emilia-Romagna Grand Prix | 19th May 2024',   'Round 8 - Monaco Grand Prix | 26th May 2024',   'Round 9 - Canadian Grand Prix | 9th June 2024',   'Round 10 - Spanish Grand Prix | 23rd June 2024',   'Round 11 - Austrian Grand Prix | 30th June 2024' ][gpIds.indexOf(i)]}</summary>       <div class="race-report-content">         ${blocks(report.blocks)}       </div>     </details>`;   }).join('') )}${dropdown('Championship standings & season records',blocks(records.blocks))}${dropdown('Affiliate driver outings',blocks(affiliates.blocks))}${dropdown('2024 special liveries',`<p>Miami Sugar Vice, British Sherbet Lemon, Austin American Sugar and Las Vegas Sugar Jackpot, alongside the standard Candy Motorsport livery.</p><button class="action" onclick="go('liveries')">Explore liveries</button>`)}${dropdown('2024 driver & team announcements',links([16,17,18]))}${dropdown('Future seasons',`<p>2025 and beyond will be added here as the Candy Motorsport career progresses. No unlogged results are included.</p>`)}`}
+</div></div><div class="stats">${stat('2024 races logged','11')}${stat('Victories','4')}${stat('Podiums','10')}${stat('Pole positions','4')}</div>${panel('2024 · Inaugural season',`<p><b>Constructors: P3 · 263 points</b> after the Austrian Grand Prix. Ferrari leads on 277 points; Red Bull has 270.</p><p>Daniel Ricciardo: P3 · 141 points<br>Pierre Gasly: P5 · 122 points</p><p class="muted">Historical cut-off: after Austria, before Silverstone 2024. This page reflects the recorded career archive, not real-world Formula One results.</p><button class="action" onclick="go('s5')">Open full 2024 season chapter</button>`)}${dropdown('Race-by-race results',tbl(season.blocks.find(b=>b.type==='table').rows))}${dropdown('2024 Grand Prix Reports',   gpIds.map(i => {     const report = archive[i];     return `<details class="race-report">       <summary>${[   'Round 5 - Chinese Grand Prix | 21st April 2024',   'Round 6 - Miami Grand Prix | 5th May 2024',   'Round 7 - Emilia-Romagna Grand Prix | 19th May 2024',   'Round 8 - Monaco Grand Prix | 26th May 2024',   'Round 9 - Canadian Grand Prix | 9th June 2024',   'Round 10 - Spanish Grand Prix | 23rd June 2024',   'Round 11 - Austrian Grand Prix | 30th June 2024' ][gpIds.indexOf(i)]}</summary>       <div class="race-report-content">         ${blocks(report.blocks)}       </div>     </details>`;   }).join('') )}${dropdown("2024 Drivers' Championship Standings",`
+  <table>
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Driver</th>
+        <th>Constructor</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>3</td>
+        <td>Daniel Ricciardo</td>
+        <td>Candy Motorsport</td>
+        <td>141</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Pierre Gasly</td>
+        <td>Candy Motorsport</td>
+        <td>122</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="muted">Standings after Round 11, Austrian Grand Prix. Other drivers will be added when their positions and points are confirmed.</p>
+`)}${dropdown("2024 Constructors' Championship Standings",`
+  <table>
+    <thead>
+      <tr>
+        <th>Pos</th>
+        <th>Constructor</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Ferrari</td>
+        <td>277</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Red Bull Racing</td>
+        <td>270</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Candy Motorsport</td>
+        <td>263</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="muted">Standings after Round 11, Austrian Grand Prix. Remaining constructors will be added when their positions and points are confirmed.</p>
+`)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate driver outings',blocks(affiliates.blocks))}${dropdown('2024 special liveries',`<p>Miami Sugar Vice, British Sherbet Lemon, Austin American Sugar and Las Vegas Sugar Jackpot, alongside the standard Candy Motorsport livery.</p><button class="action" onclick="go('liveries')">Explore liveries</button>`)}${dropdown('2024 driver & team announcements',links([16,17,18]))}${dropdown('Future seasons',`<p>2025 and beyond will be added here as the Candy Motorsport career progresses. No unlogged results are included.</p>`)}`}
   else if(id==='season2025'){
   out=`<div class="hero">
     <div class="eyebrow">Season archive · 2025 Formula One campaign</div>
