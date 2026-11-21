@@ -138,7 +138,62 @@ ${dropdown("2025 Constructors' Championship Standings",`
 `)}
   ${dropdown('Affiliate Driver Outings',   '<p>No 2025 affiliate driver outings recorded yet.</p>')}  ${dropdown('2025 Special Liveries',   '<p>To be announced.</p>')}  ${dropdown('2025 Driver & Team News',   '<p>No 2025 driver or team announcements recorded yet.</p>')}`;
 }
-else if(id==='champ'){let record=archive[6].blocks;out=`<div class="hero"><div class="eyebrow">Candy Motorsport · Official honours</div><h1>CHAMPIONSHIPS & TROPHIES</h1><p>Titles, race victories, podium finishes and the milestones that built the Pink Empire.</p></div><div class="stats">${stat('Pre-F1 titles','18')}${stat('F1 victories','4')}${stat('F1 podiums','10')}${stat('F1 poles','4')}</div>${panel('Historic championship honour roll',`<p>Explore the organisation's pre-Formula One championships and racing heritage.</p><button class="action" onclick="go('s3')">View championship honour roll</button>`)}${panel('2024 season register',blocks(record.slice(0,2)))}${panel('Grand Prix victories',blocks(record.slice(2,4)))}${panel('Podiums & trophies',blocks(record.slice(4,6)))}${panel('Pole positions & championship status',blocks(record.slice(6,8)))}${panel('Milestones',blocks(record.slice(8,10)))}${panel('Archive revisions',`<p>The full change history now has its own dedicated page.</p><button class="action" onclick="go('ledger')">Open revision ledger</button>`)}`}
+
+else if(id==='champ'){
+  const honours=archive[3].blocks;
+  const record=archive[6].blocks;
+  const titleBlock=(title,body)=>`
+    <section class="panel trophy-section">
+      <h2>${title}</h2>
+      ${body}
+    </section>`;
+
+  out=`
+    <div class="hero trophy-hero">
+      <div class="eyebrow">Candy Motorsport · Est. 1985</div>
+      <h1>THE TROPHY CABINET</h1>
+      <p>Forty years of racing. A legacy built on winning.</p>
+    </div>
+
+    <div class="stats trophy-stats">
+      ${stat('Historic Championships','18')}
+      ${stat('Pre-F1 Race Wins','247')}
+      ${stat('Formula One Victories','4')}
+      ${stat('Formula One Podiums','10')}
+    </div>
+
+    ${titleBlock("🏆 Champions' Gallery",`
+      <p>From the first regional championships to national
+      stock-car glory and international endurance titles.</p>
+      ${dropdown('Explore All 18 Championship Titles',
+        blocks(honours.slice(0,1)))}
+    `)}
+
+    ${titleBlock('🥇 The Crown Jewels',`
+      <p>Our greatest victories across the decades,
+      including Daytona and Le Mans.</p>
+      ${blocks(honours.slice(1,4))}
+    `)}
+
+    ${titleBlock('🏎️ Formula One Silverware',`
+      <p>The Pink Empire's Formula One achievements,
+      beginning with its inaugural 2024 campaign.</p>
+      ${dropdown('Grand Prix Victories',
+        blocks(record.slice(2,4)))}
+      ${dropdown('Podiums & Trophies',
+        blocks(record.slice(4,6)))}
+      ${dropdown('Pole Positions & Championship Status',
+        blocks(record.slice(6,8)))}
+    `)}
+
+    ${titleBlock('⭐ Legendary Milestones',`
+      <p>The moments that transformed a family racing
+      organisation into a Formula One contender.</p>
+      ${dropdown('Explore the Milestone Wall',
+        blocks(record.slice(8,10)))}
+    `)}
+  `;
+}
 else if(id==='ledger'){out=`<div class="hero"><div class="eyebrow">Heritage Archive · Change history</div><h1>REVISION LEDGER</h1><p>A chronological record of archive updates and the protocol for maintaining our history.</p></div>${panel('Revision history',blocks(revisionLedgerBlocks))}<div class="tools"><button class="action" onclick="go('champ')">Back to championships & trophies</button></div>`}
 else if(id==='team'){out=teamPage()}else if(id==='gallery'){out='<h1>Media gallery</h1><div class="gallery">'+sections().map((s,i)=>s.blocks.filter(b=>b.type==='image').map(b=>panel(esc(s.title),`<a href="${b.src}" target="_blank"><img src="${b.src}" alt="Archive artwork"></a><button class="link" onclick="go('s${i}')">View chapter →</button>`)).join('')).join('')+'</div>'}
 else if(id==='update'){out='<h1>Update archive</h1><article><p>Add a new historical entry. Entries are saved in this browser only, and can be exported as JSON for backup or future updates. The source chapters remain unchanged.</p><label>Entry title<br><input class="edit" id="nt" placeholder="British Grand Prix"></label><p><label>Details<textarea id="nb"></textarea></label></p><button class="action" onclick="add()">Save entry</button><div class="tools"><button class="action" onclick="exportNotes()">Export entries</button><label>Import entries <input type="file" accept=".json" onchange="importNotes(this)"></label></div><p id="msg" role="status"></p>'+links(extra.map((_,i)=>archive.length+i))+'</article>'}
