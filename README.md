@@ -11,3 +11,4 @@ This is the modular static website. Publish all files and folders at the reposit
 To update the website, edit only the relevant file(s) and commit to `main`. Netlify deploys automatically. Keep image filenames referenced by `data/archive.js` and `app.js` intact.
 
 Browser-local notes are still stored in localStorage and are not shared publicly until incorporated into the source.
+Modular archive preview deployment test.
