@@ -16,7 +16,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   <button class="season-tab" onclick="go('season2025')">
     2025 Season
 </button>
-</div></div><div class="stats">${stat('2024 races logged','11')}${stat('Victories','4')}${stat('Podiums','10')}${stat('Pole positions','4')}</div>${panel('2024 · Inaugural season',`<p><b>Constructors: P3 · 263 points</b> after the Austrian Grand Prix. Ferrari leads on 277 points; Red Bull has 270.</p><p>Daniel Ricciardo: P3 · 141 points<br>Pierre Gasly: P5 · 122 points</p><p class="muted">Historical cut-off: after Austria, before Silverstone 2024. This page reflects the recorded career archive, not real-world Formula One results.</p><button class="action" onclick="go('s5')">Open full 2024 season chapter</button>`)}${dropdown('Race-by-race results',tbl(season.blocks.find(b=>b.type==='table').rows))}${dropdown('2024 Grand Prix Reports',   gpIds.map(i => {     const report = archive[i];     return `<details class="race-report">       <summary>${[   'Round 5 - Chinese Grand Prix | 21st April 2024',   'Round 6 - Miami Grand Prix | 5th May 2024',   'Round 7 - Emilia-Romagna Grand Prix | 19th May 2024',   'Round 8 - Monaco Grand Prix | 26th May 2024',   'Round 9 - Canadian Grand Prix | 9th June 2024',   'Round 10 - Spanish Grand Prix | 23rd June 2024',   'Round 11 - Austrian Grand Prix | 30th June 2024' ][gpIds.indexOf(i)]}</summary>       <div class="race-report-content">         ${blocks(report.blocks)}       </div>     </details>`;   }).join('') )}${dropdown("2024 Drivers' Championship Standings",`
+</div></div><div class="stats">${stat('2024 races logged','11')}${stat('Victories','4')}${stat('Podiums','10')}${stat('Pole positions','4')}</div>${panel('2024 · Inaugural season',`<p><b>Constructors: P3 · 263 points</b> after the Austrian Grand Prix. Ferrari leads on 277 points; Red Bull has 270.</p><p>Daniel Ricciardo: P3 · 141 points<br>Pierre Gasly: P5 · 122 points</p><p class="muted">Historical cut-off: after Austria, before Silverstone 2024. This page reflects the recorded career archive, not real-world Formula One results.</p><button class="action" onclick="go('s5')">Open full 2024 season chapter</button>`)}${dropdown('Race-by-Race Results',tbl(season.blocks.find(b=>b.type==='table').rows))}${dropdown('2024 Grand Prix Reports',   gpIds.map(i => {     const report = archive[i];     return `<details class="race-report">       <summary>${[   'Round 5 - Chinese Grand Prix | 21st April 2024',   'Round 6 - Miami Grand Prix | 5th May 2024',   'Round 7 - Emilia-Romagna Grand Prix | 19th May 2024',   'Round 8 - Monaco Grand Prix | 26th May 2024',   'Round 9 - Canadian Grand Prix | 9th June 2024',   'Round 10 - Spanish Grand Prix | 23rd June 2024',   'Round 11 - Austrian Grand Prix | 30th June 2024' ][gpIds.indexOf(i)]}</summary>       <div class="race-report-content">         ${blocks(report.blocks)}       </div>     </details>`;   }).join('') )}${dropdown("2024 Drivers' Championship Standings",`
   <table>
     <thead>
       <tr>
@@ -70,7 +70,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
     </tbody>
   </table>
   <p class="muted">Standings after Round 11, Austrian Grand Prix. Remaining constructors will be added when their positions and points are confirmed.</p>
-`)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate driver outings',blocks(affiliates.blocks))}${dropdown('2024 Special Liveries',blocks(archive[9].blocks.slice(0,8)) + `
+`)}${dropdown('2024 Championship Records & Statistics',blocks(records.blocks))}${dropdown('Affiliate Driver Outings',blocks(affiliates.blocks))}${dropdown('2024 Special Liveries',blocks(archive[9].blocks.slice(0,8)) + `
   <h3>Austin Grand Prix | American Sugar</h3>
   <p>Pink, blue and white angular stripes honour American racing heritage and the team's Illinois roots.</p>
   <p><b>To be revealed soon.</b></p>
@@ -100,7 +100,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
     <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses.</p>
     <p class="muted">Race results, championship standings, driver statistics and Grand Prix reports will be added when confirmed.</p>
   `)}
-  ${dropdown('Race-by-race results','<p>No results recorded yet.</p>')}
+  ${dropdown('Race-by-Race Results','<p>No results recorded yet.</p>')}
   ${dropdown('2025 Grand Prix Reports','<p>No reports recorded yet.</p>')}
  ${dropdown("2025 Drivers' Championship Standings",`
   <table>
