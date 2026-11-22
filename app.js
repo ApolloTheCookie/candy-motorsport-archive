@@ -116,6 +116,14 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
     <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses.</p>
     <p class="muted">Race results, championship standings, driver statistics and Grand Prix reports will be added when confirmed.</p>
   `)}
+  ${dropdown('2025 Car Development | Research Programme',tbl([
+    ['Component','Status as of 9 Aug 2024','Expected completion','Engineers'],
+    ['Front Wing','Completed','Completed by 9 Aug 2024','Released'],
+    ['Underfloor','In progress','13 Aug 2024','1'],
+    ['Chassis','In progress','22 Aug 2024','3'],
+    ['Rear Wing','In progress','31 Aug 2024','3'],
+    ['Sidepods (second research project)','In progress · Balanced focus','6 Sep 2024','3']
+  ]) + '<p class="muted">Research status recorded on 9 August 2024. Second Sidepods project confirmed: 28 days, $1,000,000, three engineers, 0 CFD MAU and 0 wind tunnel hours. All 10 engineers and all 4 research slots are allocated. Completion dates are projected, not completed results. These projects develop the 2025 car and do not directly upgrade the 2024 CM-01.</p>')}
   ${dropdown('Race-by-Race Results','<p>No results recorded yet.</p>')}
   ${dropdown('2025 Grand Prix Reports','<p>No reports recorded yet.</p>')}
  ${dropdown("2025 Drivers' Championship Standings",`
