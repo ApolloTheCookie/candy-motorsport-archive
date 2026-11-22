@@ -95,7 +95,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   <p>Pink, gold and black celebrate the illuminated casinos and glamour of the Las Vegas Strip.</p>
   <p><b>To be revealed soon.</b></p>
 `)}${dropdown('2024 Driver & Team Announcements',
-  [16,17,18].map(i => `
+  [16,17,18,22].map(i => `
     <article class="panel">
       <h3>${esc(archive[i].title.replace(/^\d+\s+/,''))}</h3>
       ${blocks(archive[i].blocks)}
