@@ -873,3 +873,32 @@
   object-position: center center;
   margin: 0 auto 10px;
 }
+
+/* Liveries collection: compact responsive cards and consistent section hierarchy */
+.livery-page{max-width:1100px;margin:0 auto 24px}
+.livery-page .livery-hero{padding:26px 30px;margin-bottom:16px}
+.livery-page .livery-hero h1{font-size:clamp(28px,4vw,44px);letter-spacing:-1px}
+.livery-page .livery-hero p{max-width:680px;margin-bottom:0}
+.livery-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:16px}
+.livery-highlights>div{background:white;border:1px solid #e2e2eb;border-radius:12px;padding:14px 18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.livery-highlights small,.livery-highlights span{font-size:12px;color:#626477}
+.livery-highlights strong{font-size:24px;color:#c90069;line-height:1.2}
+.livery-section,.livery-page>.panel{background:#fff;border:1px solid #e2e2eb;border-radius:14px;margin:0 0 16px;padding:22px 24px}
+.livery-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.livery-heading small{font-size:11px;letter-spacing:1px;color:#bb0065;font-weight:800}
+.livery-heading h2{font-size:21px;margin:5px 0 12px}
+.livery-pill{font-size:12px;font-weight:700;color:#a90059;background:#ffecf5;padding:7px 12px;border-radius:999px}
+.muted-pill{color:#555969;background:#f1f1f4}
+.livery-section>p{color:#555867;line-height:1.55}
+.livery-feature,.livery-page .cm01-photo{max-width:850px;margin:16px auto;text-align:center}
+.livery-feature img,.livery-page .cm01-photo img{width:100%;height:auto;max-height:460px;object-fit:contain;margin:0 auto}
+.livery-feature figcaption,.livery-page .cm01-photo figcaption{font-size:12px;color:#666878;margin-top:9px}
+.livery-pending{border:1px dashed #b6b4c2;background:#f7f6f9;padding:25px;border-radius:10px;color:#646579}
+.livery-page>.panel>p{color:#5c5e6d;line-height:1.5}
+.livery-page>.panel .race-report{margin:8px 0;border:1px solid #e5e3eb;border-radius:10px;background:#fcfbfd}
+.livery-page>.panel .race-report summary{padding:13px 16px;font-size:15px}
+.livery-page>.panel .race-report summary:hover{background:#fff0f6}
+.livery-page>.panel .race-report-content{padding:14px 17px;line-height:1.55}
+.livery-page>.panel .race-report-content h3{font-size:15px;margin-top:16px}
+.livery-page>.panel .race-report summary::after{font-size:21px;color:#d60070}
+@media(max-width:750px){.livery-highlights{grid-template-columns:1fr;gap:8px}.livery-highlights>div{padding:12px 16px}.livery-section,.livery-page>.panel{padding:17px 16px}.livery-page .livery-hero{padding:22px 18px}.livery-heading h2{font-size:18px}}
