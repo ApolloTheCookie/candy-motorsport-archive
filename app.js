@@ -157,7 +157,7 @@ ${dropdown("2025 Constructors' Championship Standings",`
     </tbody>
   </table>
 `)}
-  ${dropdown('Affiliate Driver Outings',   '<p>No 2025 affiliate driver outings recorded yet.</p>')}  ${dropdown('2025 Liveries', `
+  ${dropdown('Affiliate Driver Outings', `<p><b>Approved 2025 FP1 plan:</b> 12 scheduled outings, three per academy driver and six substitutions per car. No 2025 outings or results have been confirmed as completed.</p>${blocks(archive[69].blocks.slice(2))}`)}  ${dropdown('2025 Liveries', `
   <h3>Standard 2025 Livery | C40</h3>
   <p>Hot pink and white bodywork, bold yellow wings and C40 anniversary branding define Candy Motorsport's standard 2025 design.</p>
   <div class="season-livery-photo">
@@ -176,7 +176,7 @@ ${dropdown("2025 Constructors' Championship Standings",`
     ${blocks(archive[i].blocks.slice(1))}
   `).join('')}
 `)}
-${dropdown('2025 Driver & Team News', `<article class="panel"><h3>2025 Affiliate Driver Academy · F2 and F3 Placements</h3>${blocks(archive[68].blocks)}</article><article class="panel"><h3>2025 Driver & Team Lineup · Full Grid Confirmed</h3>${blocks(archive[67].blocks)}</article><article class="panel"><h3>Visa · 2025 Partnership Announcement</h3>${blocks(archive[66].blocks)}</article><article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
+${dropdown('2025 Driver & Team News', `<article class="panel"><h3>2025 Affiliate FP1 Schedule · Approved</h3>${blocks(archive[69].blocks.slice(0,2))}${blocks(archive[69].blocks.slice(3))}</article><article class="panel"><h3>2025 Affiliate Driver Academy · F2 and F3 Placements</h3>${blocks(archive[68].blocks)}</article><article class="panel"><h3>2025 Driver & Team Lineup · Full Grid Confirmed</h3>${blocks(archive[67].blocks)}</article><article class="panel"><h3>Visa · 2025 Partnership Announcement</h3>${blocks(archive[66].blocks)}</article><article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
 }
 
 else if(id==='champ'){
