@@ -902,3 +902,18 @@
 .livery-page>.panel .race-report-content h3{font-size:15px;margin-top:16px}
 .livery-page>.panel .race-report summary::after{font-size:21px;color:#d60070}
 @media(max-width:750px){.livery-highlights{grid-template-columns:1fr;gap:8px}.livery-highlights>div{padding:12px 16px}.livery-section,.livery-page>.panel{padding:17px 16px}.livery-page .livery-hero{padding:22px 18px}.livery-heading h2{font-size:18px}}
+
+/* Season-organised driver profiles, 2025 */
+.person-meta{margin:5px 0 8px;font-size:14px;color:var(--muted,#a1a1aa)}
+.person-contract{margin:0 0 12px;font-size:13px}
+.person-detail{margin:8px 0 0;font-size:14px;line-height:1.5}
+.driver-seasons{display:grid;gap:8px;margin-top:12px}
+.driver-season{border:1px solid rgba(160,160,160,.22);border-radius:10px;overflow:hidden;background:rgba(140,140,140,.05)}
+.driver-season summary{cursor:pointer;list-style:none;padding:11px 13px;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.driver-season summary::-webkit-details-marker{display:none}
+.driver-season summary::after{content:"+";font-size:18px;line-height:1;font-weight:500;color:#ec278c}
+.driver-season[open] summary::after{content:"−"}
+.driver-season[open] summary{border-bottom:1px solid rgba(160,160,160,.16)}
+.driver-season ul{margin:10px 14px 13px;padding-left:16px;font-size:13px;line-height:1.55}
+.driver-season li+li{margin-top:5px}
+.driver-season summary:focus-visible{outline:2px solid #ed007e;outline-offset:-3px}
