@@ -117,7 +117,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
     </div>
   </div>
   ${panel('2025 · Season archive',`
-    <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses. The team has confirmed the continuation of its Ferrari powertrain partnership for 2025. Carrie Candy selected Bansana Group as the preferred 2025 title sponsor, with Visa chosen as its fictional real-world branding equivalent. In-game negotiation confirmation remains pending.</p>
+    <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses. The team has confirmed the continuation of its Ferrari powertrain partnership for 2025. Carrie Candy selected Bansana Group as the preferred 2025 title sponsor, represented fictionally by Visa. Five optional supporting sponsors have been paired with Dell Technologies, Logitech, Puma, Bose and Wise for the team's fictional branding. The negotiation screen shows $90.3 million in combined potential funding; final confirmation remains pending.</p>
     <p class="muted">The 24 Grand Prix report documents are ready. Race results, championship standings and driver statistics will be added when confirmed.</p>
   `)}
   ${dropdown('Race-by-Race Results','<p>No results recorded yet.</p>')}
