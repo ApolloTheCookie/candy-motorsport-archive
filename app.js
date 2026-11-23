@@ -420,7 +420,8 @@ const description=(()=>{
   const liveries=archive[9].blocks;
 
   out=`
-    <div class="hero">
+    <div class="livery-page">
+    <div class="hero livery-hero">
       <div class="eyebrow">Candy Motorsport · Racing identity</div>
       <h1>The Liveries Collection</h1>
       <p>From our signature electric pink to special
@@ -428,23 +429,26 @@ const description=(()=>{
       of Formula One.</p>
     </div>
 
-    <div class="stats">
-      ${stat('2024 Chassis','CM-01')}
-      ${stat('Standard Identity','Pink & White')}
-      ${stat('2024 Specials','4')}
-      ${stat('American Specials','3')}
+    <div class="livery-highlights">
+      <div><small>2025 identity</small><strong>C40</strong><span>Pink · White · Yellow</span></div>
+      <div><small>2024 chassis</small><strong>CM-01</strong><span>Pink · White</span></div>
+      <div><small>2024 special editions</small><strong>4 designs</strong><span>Miami · Britain · Austin · Las Vegas</span></div>
     </div>
 
-    ${dropdown('CM-01 · Standard 2024 Livery',`
+    <section class="livery-section">
+      <div class="livery-heading"><div><small>2025 · CURRENT DESIGN</small><h2>C40 · Standard 2025 Livery</h2></div><span class="livery-pill">Current</span></div>
+      <p>The C40 identity combines signature pink and white bodywork with yellow wings and the new anniversary branding.</p>
+      <figure class="livery-feature">
+        <a href="assets/images/c40-standard-livery-2025.png" target="_blank" rel="noopener noreferrer"><img src="assets/images/c40-standard-livery-2025.png" alt="Candy Motorsport C40 2025 standard livery at Illinois test circuit, photorealistic concept" loading="lazy" onerror="this.closest('a').style.display='none';this.closest('figure').querySelector('.livery-pending').style.display='block'"></a>
+        <p class="livery-pending" style="display:none">Image awaiting upload to website repository.</p>
+        <figcaption>2025 standard design · Illinois home testing circuit · concept render</figcaption>
+      </figure>
+    </section>
+    <section class="livery-section">
+      <div class="livery-heading"><div><small>2024 · HERITAGE</small><h2>CM-01 · Standard 2024 Livery</h2></div><span class="livery-pill muted-pill">Archive</span></div>
       ${standardLiveryPhoto}
-      <p>White bodywork, sweeping electric-pink
-      graphics, a bright pink front wing, a white
-      rear wing and dark exposed lower bodywork
-      define Candy Motorsport's Formula One identity.</p>
-      <p>The design connects the team's American
-      racing heritage with its new international
-      ambitions under Caroline Candy.</p>
-    `)}
+      <p>White bodywork, sweeping electric-pink graphics and exposed black aerodynamics established the team's inaugural Formula One identity.</p>
+    </section>
 
     ${panel('2024 · Special Edition Collection',`
       <p>Four distinctive designs, each celebrating
@@ -489,6 +493,7 @@ const description=(()=>{
         confirmed in the archive yet.</p>
       `)}
     `)}
+      </div>
   `;
 }
 ;if(id==='races')out+=panel('2024 season results',tbl(archive.find(s=>s.title.startsWith('05')).blocks.find(b=>b.type==='table').rows));if(id==='timeline')out+=blocks(archive.find(s=>s.title.startsWith('06')).blocks)}$('main').innerHTML=out+'<footer>Candy Motorsport · fictional career archive · Source: Heritage Archive Edition 9.7 · Not affiliated with Formula One.</footer>';if(id==='team'){teamQuery='';drawTeam()}}
