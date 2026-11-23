@@ -157,7 +157,7 @@ ${dropdown("2025 Constructors' Championship Standings",`
     </tbody>
   </table>
 `)}
-  ${dropdown('Affiliate Driver Outings', `<p><b>Approved 2025 FP1 plan:</b> 12 scheduled outings, three per academy driver and six substitutions per car. No 2025 outings or results have been confirmed as completed.</p>${blocks(archive[69].blocks.slice(2))}`)}  ${dropdown('2025 Liveries', `
+  ${dropdown('Affiliate Driver Outings', `<p><b>Approved 2025 FP1 plan:</b> 12 scheduled outings, three per academy driver and six substitutions per car. Bahrain FP1 completed: Jean-Philippe Moulin P1 (1:35.648, cloudy). One of twelve scheduled outings completed.</p>${blocks(archive[69].blocks.slice(2))}`)}  ${dropdown('2025 Liveries', `
   <h3>Standard 2025 Livery | C40</h3>
   <p>Hot pink and white bodywork, bold yellow wings and C40 anniversary branding define Candy Motorsport's standard 2025 design.</p>
   <div class="season-livery-photo">
