@@ -151,85 +151,29 @@ ${dropdown('2025 Driver & Team News', `<article class="panel"><h3>Ron Meadows ·
 }
 
 else if(id==='champ'){
-  const honours=archive[3].blocks;
-  const record=archive[6].blocks;
-  const titleBlock=(title,body)=>`
-    <section class="panel trophy-section">
-      <h2>${title}</h2>
-      ${body}
-    </section>`;
-
+  const honours=archive[3].blocks, record=archive[6].blocks;
+  const trophySection=(title,body)=>`<section class="panel trophy-section"><h2>${title}</h2>${body}</section>`;
+  const victoryTable=record.find(b=>b.type==='table'&&b.rows[0][0]==='Win no.');
+  const podiumTable=record.find(b=>b.type==='table'&&b.rows[0][0]==='No.');
+  const seasonTable=record.find(b=>b.type==='table'&&b.rows[0][0]==='Season');
+  const poleRows=[["Grand Prix","Date","Driver","Pole lap","Conditions"],["Miami","4 May 2024","Daniel Ricciardo","1:38.085","Moderate rain"],["Emilia-Romagna","18 May 2024","Daniel Ricciardo","1:20.385","Heavy rain"],["Monaco","25 May 2024","Daniel Ricciardo","1:09.327","Partly cloudy"],["Canada","8 Jun 2024","Daniel Ricciardo","1:09.969","Not recorded"],["Great Britain","6 Jul 2024","Daniel Ricciardo","1:26.049","Cloudy"],["Netherlands","24 Aug 2024","Daniel Ricciardo","1:09.153","Partly cloudy"]];
   out=`
-    <div class="hero trophy-hero">
-      <div class="eyebrow">Candy Motorsport · Est. 1985</div>
-      <h1>THE TROPHY CABINET</h1>
-      <p>Forty years of racing. A legacy built on winning.</p>
-    </div>
-
+    <div class="hero trophy-hero"><div class="eyebrow">Candy Motorsport · Est. 1985</div><h1>THE TROPHY CABINET</h1><p>Four decades of racing heritage, with Formula One records updated through Bahrain 2025.</p></div>
     <div class="stats trophy-stats">
       ${stat('Historic Championships','18')}
       ${stat('Pre-F1 Race Wins','247')}
-      ${stat('Formula One Victories','5')}
-      ${stat('Formula One Podiums','13')}
+      ${stat('Formula One Victories','6')}
+      ${stat('F1 Individual Podiums','18')}
+      ${stat('Formula One Poles','6')}
     </div>
-
-    ${titleBlock("🏆 Champions' Gallery",`
-      <p>From the first regional championships to national
-      stock-car glory and international endurance titles.</p>
-      ${dropdown('Explore All 18 Championship Titles',
-        blocks(honours.slice(0,1)))}
-    `)}
-
-    ${titleBlock('🥇 The Crown Jewels',`
-      <p>Our greatest victories across the decades,
-      including Daytona and Le Mans.</p>
-      ${blocks(honours.slice(1,4))}
-    `)}
-
-    ${titleBlock('🏎️ Formula One Silverware',`
-      <p>The Pink Empire's Formula One achievements,
-      beginning with its inaugural 2024 campaign.</p>
-      ${dropdown('Grand Prix Victories',
-        blocks(record.slice(2,4)))}
-      ${dropdown('Podiums & Trophies',
-        blocks(record.slice(4,6)))}
-      
-${dropdown('Pole Positions & Championship Status',`
-  <h3>2024 Pole Position Register</h3>
-  ${tbl([
-    ['Grand Prix','Date','Driver','Pole Lap','Conditions'],
-    ['Miami','4 May 2024','Daniel Ricciardo','1:38.085','Moderate rain'],
-    ['Emilia-Romagna','18 May 2024','Daniel Ricciardo','1:20.388','Heavy rain'],
-    ['Monaco','25 May 2024','Daniel Ricciardo','1:09.327','Partly cloudy'],
-    ['Canada','8 June 2024','Daniel Ricciardo','1:09.969','Not recorded'], ['Great Britain','6 July 2024','Daniel Ricciardo','1:26.049','Cloudy'],
-    ['Netherlands','24 Aug 2024','Daniel Ricciardo','1:09.153','Partly cloudy']
-  ])}
-
-  <h3>Notable Qualifying Achievements</h3>
-  <p><strong>Monaco:</strong> Pierre Gasly qualified P2
-  with a 1:09.375, securing Candy Motorsport's
-  first all-team front-row lockout.</p>
-  <p><strong>Canada:</strong> Pierre Gasly qualified P5
-  with a 1:10.692.</p>
-  <p><strong>Netherlands:</strong> Daniel Ricciardo took his sixth Candy Motorsport pole in partly cloudy conditions (1:09.153), while Pierre Gasly qualified P4 (1:09.300). Gasly finished P5 and Ricciardo P11 in the cloudy race on 25 August.</p>
-  <p><strong>Italy:</strong> Pierre Gasly qualified P4 (1:20.993), then won in partly cloudy race conditions on 1 September 2024. Daniel Ricciardo qualified P7 (1:21.141) and finished P5; the team earned 35 points and $1,008,332 in target bonuses.</p>
-  <p><strong>Singapore:</strong> Gasly P2 and Ricciardo P3 on 22 September in cloudy race conditions, the fourth double-podium weekend of 2024. The team scored 33 points and earned $1,008,332 in target bonuses; Ricciardo DHL pit stop P6 (2.487s).</p>
-  <p><strong>United States:</strong> Pierre Gasly qualified/started P2 and finished P3 in cloudy conditions at Austin on 20 October 2024, the 16th individual F1 podium. Gasly scored 15 points and met his target for a $504,166 bonus. Daniel Ricciardo started P14 after a five-place grid penalty and retired P21 DNF, cause unreported.</p>
-
-  <h3>Championship Status</h3>
-  <p>No Formula One Drivers' or Constructors'
-  Championship titles recorded at the
-  archive cut-off.</p>
-`)}
-
-    `)}
-
-    ${titleBlock('⭐ Legendary Milestones',`
-      <p>The moments that transformed a family racing
-      organisation into a Formula One contender.</p>
-      ${dropdown('Explore the Milestone Wall',
-        blocks(record.slice(8,10)))}
-    `)}
+    ${trophySection('🏆 Champions\u0027 Gallery',`<p>18 confirmed titles from the pre-F1 era, 1988–2023. These are historic championships, not Formula One world titles.</p>${dropdown('Explore All 18 Championship Titles',blocks(honours.slice(0,1))) }`)}
+    ${trophySection('🥇 Heritage Race Victories',`<p>247 pre-F1 race wins and landmark victories including Daytona and the 24 Hours of Le Mans LMP2 class.</p>${blocks(honours.slice(1,4))}`)}
+    ${trophySection('🏎️ Formula One | Season Breakdown',`<p>2024 is complete; 2025 figures reflect only Bahrain Round 1. Podiums count individual driver finishes, so a double podium adds two.</p>${blocks([seasonTable])}<p class="muted">Career totals: 6 wins, 6 poles, 18 individual podiums and 550 reported Grand Prix points across 25 race weekends. No Formula One world championship titles recorded.</p>`)}
+    ${trophySection('🏁 Grand Prix Victories',`<p>Five wins in 2024, followed by Pierre Gasly's Bahrain victory on 1 March 2025.</p>${dropdown('All Six Formula One Victories',blocks([victoryTable]))}`)}
+    ${trophySection('🥉 Podiums & Trophies',`<p>16 individual podiums in 2024, plus Gasly P1 and Ricciardo P3 at Bahrain in 2025.</p>${dropdown('All 18 Individual Formula One Podiums',blocks([podiumTable]))}`)}
+    ${trophySection('⏱️ Pole Positions',`<p>Six poles, all achieved by Daniel Ricciardo in 2024. None recorded yet in 2025.</p>${dropdown('2024 Pole Position Register',tbl(poleRows))}`)}
+    ${trophySection('📊 Championship Record',`<p><b>2024:</b> Candy Motorsport finished P3 in the Constructors' Championship (510 points); Pierre Gasly P3 in the Drivers' Championship (287 points), Daniel Ricciardo P5 (223 points).</p><p><b>2025 after Bahrain:</b> Candy Motorsport leads the Constructors' Championship on 40 points, 18 clear of Red Bull and Ferrari. Gasly leads the Drivers' standings with 25 points; Ricciardo is P3 with 15.</p><p class="muted">No F1 Drivers' or Constructors' World Championship titles won to date. The 2025 standings are provisional after one round.</p>`)}
+    ${trophySection('⭐ Legendary Milestones',`<p>From the founding of Candy Motorsport to its first Grand Prix win and the first race of the 2025 campaign.</p>${dropdown('Explore Historical Milestones',blocks(record.filter(b=>b.type==='heading'&&b.text==='Milestone register').length?record.slice(record.findIndex(b=>b.type==='heading'&&b.text==='Milestone register'),record.findIndex(b=>b.type==='heading'&&b.text==='Revision ledger')):[]))}`)}
   `;
 }
 else if(id==='ledger'){out=`<div class="hero"><div class="eyebrow">Heritage Archive · Change history</div><h1>REVISION LEDGER</h1><p>A chronological record of archive updates and the protocol for maintaining our history.</p></div>${panel('Revision history',blocks(revisionLedgerBlocks))}<div class="tools"><button class="action" onclick="go('champ')">Back to championships & trophies</button></div>`}
