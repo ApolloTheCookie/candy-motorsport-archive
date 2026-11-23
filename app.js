@@ -485,8 +485,11 @@ const description=(()=>{
     `)}
 
     ${panel('2025 · Special Edition Collection',`
-      <p>Special-edition liveries for Candy Motorsport's 2025 Formula One season will be added here as they are designed and officially unveiled.</p>
-      <p class="muted">No 2025 special-edition liveries have been announced yet.</p>
+      <p>Four named special-edition livery documents for Candy Motorsport's 2025 season. Design details and artwork will be added when confirmed.</p>
+      ${dropdown('Japanese Grand Prix | Sakura Sugar', blocks(archive[62].blocks))}
+      ${dropdown('Miami Grand Prix | Sugar Clouds', blocks(archive[63].blocks))}
+      ${dropdown('Belgium Grand Prix | Praline Royale', blocks(archive[64].blocks))}
+      ${dropdown('United States Grand Prix | Sugar Rocket', blocks(archive[65].blocks))}
     `)}
       </div>
   `;
