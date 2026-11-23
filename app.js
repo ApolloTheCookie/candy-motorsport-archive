@@ -117,7 +117,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
     </div>
   </div>
   ${panel('2025 · Season archive',`
-    <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses.</p>
+    <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses. The team has confirmed the continuation of its Ferrari powertrain partnership for 2025.</p>
     <p class="muted">Race results, championship standings, driver statistics and Grand Prix reports will be added when confirmed.</p>
   `)}
   ${dropdown('Race-by-Race Results','<p>No results recorded yet.</p>')}
@@ -156,7 +156,7 @@ ${dropdown("2025 Constructors' Championship Standings",`
     </tbody>
   </table>
 `)}
-  ${dropdown('Affiliate Driver Outings',   '<p>No 2025 affiliate driver outings recorded yet.</p>')}  ${dropdown('2025 Special Liveries',   '<p>To be announced.</p>')}  ${dropdown('2025 Driver & Team News', blocks(archive[35].blocks))}`;
+  ${dropdown('Affiliate Driver Outings',   '<p>No 2025 affiliate driver outings recorded yet.</p>')}  ${dropdown('2025 Special Liveries',   '<p>To be announced.</p>')}  ${dropdown('2025 Driver & Team News', `<article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
 }
 
 else if(id==='champ'){
