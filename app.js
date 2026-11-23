@@ -118,10 +118,10 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   </div>
   ${panel('2025 · Season archive',`
     <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses. The team has confirmed the continuation of its Ferrari powertrain partnership for 2025.</p>
-    <p class="muted">Race results, championship standings, driver statistics and Grand Prix reports will be added when confirmed.</p>
+    <p class="muted">The 24 Grand Prix report documents are ready. Race results, championship standings and driver statistics will be added when confirmed.</p>
   `)}
   ${dropdown('Race-by-Race Results','<p>No results recorded yet.</p>')}
-  ${dropdown('2025 Grand Prix Reports','<p>No reports recorded yet.</p>')}
+  ${dropdown('2025 Grand Prix Reports', archive.filter(chapter => /^\d+\s+Round \d+ - .* Grand Prix \| .* 2025$/.test(chapter.title)).map(chapter => `<details class="race-report"><summary>${esc(chapter.title.replace(/^\d+\s+/, ''))}</summary><div class="race-report-content">${blocks(chapter.blocks)}</div></details>`).join(''))}
  ${dropdown("2025 Drivers' Championship Standings",`
   <table>
     <thead>
