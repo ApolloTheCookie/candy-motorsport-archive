@@ -118,8 +118,9 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
   </div>
   ${panel('2025 · Season archive',`
     <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses. The team has confirmed the continuation of its Ferrari powertrain partnership for 2025. For the team's fictional 2025 branding, Visa leads the partner lineup alongside Dell Technologies, Logitech, Puma, Bose and Wise.</p>
-    <p class="muted">The 24 Grand Prix report documents are ready. Race results, championship standings and driver statistics will be added when confirmed.</p>
+    <p class="muted">Seven constructors have confirmed their 2025 driver pairings, including Pierre Gasly and Daniel Ricciardo for Candy Motorsport. The 24 Grand Prix report documents are ready; standings and results will be added when confirmed.</p>
   `)}
+  ${dropdown('2025 Driver & Team Lineup', `<p>Confirmed driver pairings for seven teams in the Candy Motorsport 2025 career season. Other teams will be added when announced.</p>${blocks(archive[67].blocks.slice(2,3))}<p class="muted">Career-save roster; championship standings are recorded separately as race results become available.</p>`)}
   ${dropdown('Race-by-Race Results','<p>No results recorded yet.</p>')}
   ${dropdown('2025 Grand Prix Reports', archive.filter(chapter => /^\d+\s+Round \d+ - .* Grand Prix \| .* 2025$/.test(chapter.title)).map(chapter => `<details class="race-report"><summary>${esc(chapter.title.replace(/^\d+\s+/, ''))}</summary><div class="race-report-content">${blocks(chapter.blocks)}</div></details>`).join(''))}
  ${dropdown("2025 Drivers' Championship Standings",`
@@ -175,7 +176,7 @@ ${dropdown("2025 Constructors' Championship Standings",`
     ${blocks(archive[i].blocks.slice(1))}
   `).join('')}
 `)}
-${dropdown('2025 Driver & Team News', `<article class="panel"><h3>Visa · 2025 Partnership Announcement</h3>${blocks(archive[66].blocks)}</article><article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
+${dropdown('2025 Driver & Team News', `<article class="panel"><h3>2025 Driver & Team Lineup</h3>${blocks(archive[67].blocks)}</article><article class="panel"><h3>Visa · 2025 Partnership Announcement</h3>${blocks(archive[66].blocks)}</article><article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
 }
 
 else if(id==='champ'){
