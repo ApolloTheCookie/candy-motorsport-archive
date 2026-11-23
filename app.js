@@ -156,7 +156,26 @@ ${dropdown("2025 Constructors' Championship Standings",`
     </tbody>
   </table>
 `)}
-  ${dropdown('Affiliate Driver Outings',   '<p>No 2025 affiliate driver outings recorded yet.</p>')}  ${dropdown('2025 Liveries', `<h3>C40 | Standard 2025 Livery</h3><figure class="cm01-photo"><a href="assets/images/c40-standard-livery-2025.png" target="_blank" rel="noopener noreferrer"><img src="assets/images/c40-standard-livery-2025.png" alt="Candy Motorsport C40 standard 2025 livery on the Illinois home test circuit, pink white and yellow car with motion-blurred tyres" loading="lazy" onerror="this.closest('a').style.display='none';this.closest('figure').querySelector('.livery-upload-pending').style.display='block'"></a><p class="muted livery-upload-pending" style="display:none">Image asset awaiting upload to the website repository.</p><figcaption>C40 · Standard 2025 livery · Illinois home testing circuit · photorealistic concept render</figcaption></figure><p>Hot pink and white bodywork, yellow wings and C40 branding define the team's 2025 standard design.</p><p class="muted">2025 special liveries will be added as they are announced.</p>`) }  ${dropdown('2025 Driver & Team News', `<article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
+  ${dropdown('Affiliate Driver Outings',   '<p>No 2025 affiliate driver outings recorded yet.</p>')}  ${dropdown('2025 Liveries', `
+  <h3>Standard 2025 Livery | C40</h3>
+  <p>Hot pink and white bodywork, bold yellow wings and C40 anniversary branding define Candy Motorsport's standard 2025 design.</p>
+  <div class="season-livery-photo">
+    <figure class="cm01-photo">
+      <a href="assets/images/c40-standard-livery-2025.png" target="_blank" rel="noopener noreferrer" title="View full-size C40 standard livery artwork">
+        <img src="assets/images/c40-standard-livery-2025.png" alt="Candy Motorsport C40 standard 2025 livery at the Illinois home testing circuit, photorealistic concept artwork" loading="lazy" onerror="this.closest('a').style.display='none';this.closest('figure').querySelector('.livery-upload-pending').style.display='block'">
+      </a>
+      <p class="muted livery-upload-pending" style="display:none">Image asset awaiting upload to the website repository.</p>
+      <figcaption>C40 · Standard 2025 livery · Illinois home testing circuit · photorealistic concept render</figcaption>
+    </figure>
+  </div>
+  <h3>2025 · Special Edition Collection</h3>
+  <p>Four race-weekend special-edition livery documents. Designs and artwork will be added as they are confirmed.</p>
+  ${[62,63,64,65].map(i => `
+    <h3>${esc(archive[i].title.replace(/^\\d+\\s+2025 Special Edition Livery \\| /,''))}</h3>
+    ${blocks(archive[i].blocks.slice(1))}
+  `).join('')}
+`)}
+${dropdown('2025 Driver & Team News', `<article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
 }
 
 else if(id==='champ'){
