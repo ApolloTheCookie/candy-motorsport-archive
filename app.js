@@ -484,14 +484,9 @@ const description=(()=>{
       `)}
     `)}
 
-    ${panel('Future Seasons · Special Editions',`
-      <p>Future Formula One liveries will be
-      documented here as they are designed,
-      approved and officially unveiled.</p>
-      ${dropdown('2025 Special Liveries',`
-        <p>No 2025 special editions have been
-        confirmed in the archive yet.</p>
-      `)}
+    ${panel('2025 · Special Edition Collection',`
+      <p>Special-edition liveries for Candy Motorsport's 2025 Formula One season will be added here as they are designed and officially unveiled.</p>
+      <p class="muted">No 2025 special-edition liveries have been announced yet.</p>
     `)}
       </div>
   `;
