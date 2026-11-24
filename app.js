@@ -119,7 +119,7 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
       <button class="season-tab active" onclick="go('season2025')">2025 Season</button>
     </div>
   </div>
-  <div class="stats">${stat('Races Logged','1 / 24')}${stat('Victories','1')}${stat('Podiums','2')}${stat('Pole positions','0')}</div>
+  <div class="stats">${stat('Races Logged','1')}${stat('Victories','1')}${stat('Podiums','2')}${stat('Pole positions','0')}</div>
   ${panel('2025 · Second Formula One season',`
     <p>Candy Motorsport started its second Formula One season with <b>a victory and a double podium in Bahrain</b>. Pierre Gasly won from fourth on the grid for 25 points, while Daniel Ricciardo finished third from fifth for another 15. The team leads the Constructors' Championship with <b>40 points</b> after Round 1.</p>
     <p><b>Gasly leads the Drivers' Championship on 25 points</b>, with Ricciardo third on 15. The Constructors' lead over Red Bull and Ferrari is 18 points. Jean-Philippe Moulin topped Bahrain FP1 (1:35.648) on his first of three planned academy appearances.</p>
