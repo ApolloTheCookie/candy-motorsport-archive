@@ -119,15 +119,24 @@ else if(id==='seasons'){let season=archive.find(s=>s.title.startsWith('05'));let
       <button class="season-tab active" onclick="go('season2025')">2025 Season</button>
     </div>
   </div>
-  ${panel('2025 · Season archive',`
-    <p>The 2025 Candy Motorsport Formula One campaign will be documented here as the season progresses. The team has confirmed the continuation of its Ferrari powertrain partnership for 2025. For the team's fictional 2025 branding, Visa leads the partner lineup alongside Dell Technologies, Logitech, Puma, Bose and Wise.</p>
-    <p class="muted">All 11 constructors and 22 race drivers have now been confirmed for the 2025 season, including Pierre Gasly and Daniel Ricciardo for Candy Motorsport. Bahrain Round 1 is complete: Gasly won, Ricciardo finished third, and Candy Motorsport leads the Constructors' Championship on 40 points. Remaining rounds await results.</p>
+  <div class="stats">${stat('2025 races logged','1 / 24')}${stat('Victories','1')}${stat('Podiums','2')}${stat('Pole positions','0')}</div>
+  ${panel('2025 · Second Formula One season',`
+    <p>Candy Motorsport started its second Formula One season with <b>a victory and a double podium in Bahrain</b>. Pierre Gasly won from fourth on the grid for 25 points, while Daniel Ricciardo finished third from fifth for another 15. The team leads the Constructors' Championship with <b>40 points</b> after Round 1.</p>
+    <p><b>Gasly leads the Drivers' Championship on 25 points</b>, with Ricciardo third on 15. The Constructors' lead over Red Bull and Ferrari is 18 points. Jean-Philippe Moulin topped Bahrain FP1 (1:35.648) on his first of three planned academy appearances.</p>
+    <p>The C40 continues Candy Motorsport's Ferrari powertrain partnership. The fictional public-facing partner lineup features Visa, Dell Technologies, Logitech, Puma, Bose and Wise.</p>
+    <p class="muted">Provisional 2025 F1 Manager career results after Bahrain (Round 1 of 24), 1 March 2025. This is a fictional career archive; remaining races await results.</p>
+    <button class="action" onclick="go('s37')">Open Bahrain Grand Prix report</button>
   `)}
   ${dropdown('2025 Driver & Team Lineup', `<p>Complete 2025 career-season grid: 11 constructors and 22 race drivers, confirmed by Candy Motorsport management.</p>${blocks(archive[67].blocks.slice(2,3))}<p class="muted">Career-save roster; championship standings are recorded separately as race results become available.</p>`)}
   ${dropdown('Race-by-Race Results', `<div class="tablewrap"><table><thead><tr><th>Round</th><th>Grand Prix</th><th>Gasly</th><th>Ricciardo</th><th>Team points</th><th>Total</th></tr></thead><tbody><tr><td>1</td><td>Bahrain</td><td>P1 · 25</td><td>P3 · 15</td><td>40</td><td>40</td></tr></tbody></table></div><p class="muted">Rounds 2–24 awaiting results.</p>`)}
   ${dropdown('2025 Grand Prix Reports', archive.filter(chapter => /^\d+\s+Round \d+ - .* Grand Prix \| .* 2025$/.test(chapter.title)).map(chapter => `<details class="race-report"><summary>${esc(chapter.title.replace(/^\d+\s+/, ''))}</summary><div class="race-report-content">${blocks(chapter.blocks)}</div></details>`).join(''))}
  ${dropdown("2025 Drivers\u0027 Championship Standings", blocks([archive[37].blocks.find(x=>x.type==="table"&&x.rows[0][0]==="Pos"&&x.rows[0][1]==="Driver")]))}
 ${dropdown("2025 Constructors\u0027 Championship Standings", blocks([archive[37].blocks.find(x=>x.type==="table"&&x.rows[0][0]==="Pos"&&x.rows[0][1]==="Constructor")]))}
+  ${dropdown('2025 Championship Records & Statistics',`
+    <h3>2025 Season Snapshot · After Bahrain</h3>
+    ${tbl([['Metric','2025 after Round 1'],['Grands Prix completed','1 of 24'],['Grand Prix victories','1 · Pierre Gasly at Bahrain'],['Individual podiums','2 · Gasly P1 and Ricciardo P3'],['Pole positions','0'],['Constructors points','40 · P1 (provisional)'],['Pierre Gasly','25 points · P1 (provisional)'],['Daniel Ricciardo','15 points · P3 (provisional)'],['Academy FP1 appearances','1 of 12 completed · Moulin P1 at Bahrain']])}
+    <p class="muted">Confirmed 2025 results through Round 1 only. Remaining 23 Grands Prix and 11 planned academy FP1 outings are pending.</p>
+  `)}
   ${dropdown('Affiliate Driver Outings', `<p><b>Approved 2025 FP1 plan:</b> 12 scheduled outings, three per academy driver and six substitutions per car. Bahrain FP1 completed: Jean-Philippe Moulin P1 (1:35.648, cloudy). One of twelve scheduled outings completed.</p>${blocks(archive[69].blocks.slice(2))}`)}  ${dropdown('2025 Liveries', `
   <h3>Standard 2025 Livery | C40</h3>
   <p>Hot pink and white bodywork, bold yellow wings and C40 anniversary branding define Candy Motorsport's standard 2025 design.</p>
