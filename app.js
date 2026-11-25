@@ -140,10 +140,20 @@ ${dropdown("2025 Constructors\u0027 Championship Standings", blocks([archive[39]
     </figure>
   </div>
   <h3>2025 · Special Edition Collection</h3>
-  <p>Four race-weekend special-edition livery documents. Designs and artwork will be added as they are confirmed.</p>
+  <p>Four special-edition liveries are planned for the 2025 calendar. Sakura Sugar now has a confirmed design story; the other entries will be expanded as their designs are supplied.</p>
   ${[62,63,64,65].map(i => `
     <h3>${esc(archive[i].title.split(' | ').slice(1).join(' | '))}</h3>
     ${blocks(archive[i].blocks.slice(1))}
+    ${i===62?`
+      <div class="season-livery-photo">
+        <figure class="cm01-photo">
+          <a href="assets/images/sakura-sugar-japan-2025.png" target="_blank" rel="noopener noreferrer" title="View Sakura Sugar 2025 concept artwork">
+            <img src="assets/images/sakura-sugar-japan-2025.png" alt="Candy Motorsport C40 Sakura Sugar Japanese Grand Prix special livery in a photorealistic Suzuka racing concept" loading="lazy" onerror="this.closest('a').style.display='none';this.closest('figure').querySelector('.livery-upload-pending').style.display='block'">
+          </a>
+          <p class="muted livery-upload-pending" style="display:none">Sakura Sugar concept artwork awaiting upload to assets/images/sakura-sugar-japan-2025.png.</p>
+          <figcaption>Sakura Sugar · Japanese Grand Prix 2025 · Suzuka action concept artwork</figcaption>
+        </figure>
+      </div>`:''}
   `).join('')}
 `)}
 ${dropdown('2025 Driver & Team News', `<article class="panel"><h3>Ron Meadows · Sporting Director Renewal Through 2026</h3>${blocks(archive[70].blocks)}</article><article class="panel"><h3>2025 Affiliate FP1 Schedule · Approved</h3>${blocks(archive[69].blocks.slice(0,2))}${blocks(archive[69].blocks.slice(3))}</article><article class="panel"><h3>2025 Affiliate Driver Academy · F2 and F3 Placements</h3>${blocks(archive[68].blocks)}</article><article class="panel"><h3>2025 Driver & Team Lineup · Full Grid Confirmed</h3>${blocks(archive[67].blocks)}</article><article class="panel"><h3>Visa · 2025 Partnership Announcement</h3>${blocks(archive[66].blocks)}</article><article class="panel"><h3>Hamda Al Qubaisi · Driver Academy</h3>${blocks(archive[35].blocks)}</article><article class="panel"><h3>Ferrari · Powertrain Partnership</h3>${blocks(archive[36].blocks)}</article>`)}`;
