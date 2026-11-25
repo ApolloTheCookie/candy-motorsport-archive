@@ -142,7 +142,7 @@ ${dropdown("2025 Constructors\u0027 Championship Standings", blocks([archive[39]
   <h3>2025 · Special Edition Collection</h3>
   <p>Four race-weekend special-edition livery documents. Designs and artwork will be added as they are confirmed.</p>
   ${[62,63,64,65].map(i => `
-    <h3>${esc(archive[i].title.replace(/^\\d+\\s+2025 Special Edition Livery \\| /,''))}</h3>
+    <h3>${esc(archive[i].title.split(' | ').slice(1).join(' | '))}</h3>
     ${blocks(archive[i].blocks.slice(1))}
   `).join('')}
 `)}
