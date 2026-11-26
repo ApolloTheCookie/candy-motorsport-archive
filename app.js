@@ -140,10 +140,20 @@ ${dropdown("2025 Constructors\u0027 Championship Standings", blocks([archive[41]
     </figure>
   </div>
   <h3>2025 · Special Edition Collection</h3>
-  <p>Four special-edition liveries are planned for the 2025 calendar. Sakura Sugar now has a confirmed design story; the other entries will be expanded as their designs are supplied.</p>
+  <p>Four special-edition liveries are planned for the 2025 calendar. Sakura Sugar and Sugar Clouds now have confirmed design stories; the Belgian and United States entries await their own artwork.</p>
   ${[62,63,64,65].map(i => `
     <h3>${esc(archive[i].title.split(' | ').slice(1).join(' | '))}</h3>
     ${blocks(archive[i].blocks.slice(1))}
+    ${i===63?`
+      <div class="season-livery-photo">
+        <figure class="cm01-photo">
+          <a href="assets/images/sugar-clouds-miami-2025.png" target="_blank" rel="noopener noreferrer" title="View Sugar Clouds Miami 2025 concept artwork">
+            <img src="assets/images/sugar-clouds-miami-2025.png" alt="Candy Motorsport C40 Sugar Clouds pastel blue and pink Miami Grand Prix special livery in a photorealistic action concept" loading="lazy" onerror="this.closest('a').style.display='none';this.closest('figure').querySelector('.livery-upload-pending').style.display='block'">
+          </a>
+          <p class="muted livery-upload-pending" style="display:none">Sugar Clouds artwork awaiting upload to assets/images/sugar-clouds-miami-2025.png.</p>
+          <figcaption>Sugar Clouds · Miami Grand Prix 2025 · Miami racing action concept artwork</figcaption>
+        </figure>
+      </div>`:''}
     ${i===62?`
       <div class="season-livery-photo">
         <figure class="cm01-photo">
@@ -429,7 +439,7 @@ const description=(()=>{
     `)}
 
     ${panel('2025 · Special Edition Collection',`
-      <p>Four named special-edition liveries for the 2025 campaign. Sakura Sugar's design story is now revealed, while the other three designs await their own artwork and descriptions.</p>
+      <p>Four named special-edition liveries for the 2025 campaign. Sakura Sugar and Sugar Clouds are now revealed, while Praline Royale and Sugar Rocket remain in development.</p>
       ${dropdown('Japanese Grand Prix | Sakura Sugar', `
         ${blocks(archive[62].blocks.slice(1))}
         <figure class="livery-feature">
@@ -440,7 +450,16 @@ const description=(()=>{
           <figcaption>Sakura Sugar · Japanese Grand Prix 2025 · Suzuka concept artwork</figcaption>
         </figure>
       `)}
-      ${dropdown('Miami Grand Prix | Sugar Clouds', blocks(archive[63].blocks))}
+      ${dropdown('Miami Grand Prix | Sugar Clouds', `
+        ${blocks(archive[63].blocks.slice(1))}
+        <figure class="livery-feature">
+          <a href="assets/images/sugar-clouds-miami-2025.png" target="_blank" rel="noopener noreferrer" title="View Sugar Clouds Miami concept artwork">
+            <img src="assets/images/sugar-clouds-miami-2025.png" alt="Candy Motorsport 2025 Sugar Clouds Miami Grand Prix special livery in a photorealistic racing action concept" loading="lazy" onerror="this.closest('a').style.display='none';this.closest('figure').querySelector('.livery-pending').style.display='block'">
+          </a>
+          <p class="livery-pending" style="display:none">Sugar Clouds artwork awaiting upload to assets/images/sugar-clouds-miami-2025.png.</p>
+          <figcaption>Sugar Clouds · Miami Grand Prix 2025 · Racing action concept artwork</figcaption>
+        </figure>
+      `)}
       ${dropdown('Belgium Grand Prix | Praline Royale', blocks(archive[64].blocks))}
       ${dropdown('United States Grand Prix | Sugar Rocket', blocks(archive[65].blocks))}
     `)}
